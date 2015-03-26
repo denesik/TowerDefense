@@ -12,8 +12,14 @@ unix:LIBS += -lm -lXrandr -lXi -lX11 -lXxf86vm -lpthread -lXinerama -lXcursor
 
 SOURCES += main.cpp \
     Game.cpp \
-    Window.cpp
+    Window.cpp \
+    Texture.cpp \
+    Bitmap.cpp \
+    lodepng/lodepng.cpp
 
 HEADERS += \
     Game.h \
-    Window.h
+    Window.h \
+    Texture.h \
+    Bitmap.h \
+    lodepng/lodepng.h
