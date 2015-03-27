@@ -3,6 +3,7 @@
 
 #include <glm/glm.hpp>
 #include "Bitmap.h"
+#include <memory>
 
 class TextureException: public std::exception
 {
@@ -28,6 +29,8 @@ private:
   const unsigned int mId;
 };
 
+class Texture;
+typedef std::shared_ptr<Texture> PTexture;
 
 /// Текстура. Находится в видеопамяти.
 class Texture

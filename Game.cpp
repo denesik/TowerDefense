@@ -22,7 +22,7 @@ bool Game::Initialize()
   {
     mWindow = new Window;
   }
-  catch (WindowException* e)
+  catch (WindowException *e)
   {
   	printf("%s\n", e->what());
     return false;
