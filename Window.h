@@ -60,7 +60,7 @@ private:
   {
     void operator()(GLFWwindow *window) const
     {
-      printf("window delete %i\n", window);
+      printf("window delete\n");
       glfwDestroyWindow(window);
     }
   };

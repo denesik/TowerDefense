@@ -5,12 +5,12 @@
 
 #include <glm/glm.hpp>
 
-/// Описание вершины.
+/// РћРїРёСЃР°РЅРёРµ РІРµСЂС€РёРЅС‹.
 struct Vertex
 {
-  glm::vec3 point;    // Точка
-  glm::vec2 text;     // Текстурные координаты
-  glm::vec4 color;    // Цвет
+  glm::vec3 point;    // РўРѕС‡РєР°
+  glm::vec2 text;     // РўРµРєСЃС‚СѓСЂРЅС‹Рµ РєРѕРѕСЂРґРёРЅР°С‚С‹
+  glm::vec4 color;    // Р¦РІРµС‚
 };
 
 #endif // Vertex_h__

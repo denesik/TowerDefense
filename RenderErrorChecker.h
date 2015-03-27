@@ -10,7 +10,7 @@ void RenderCheckErrors(T &dst)
 {
   while(unsigned int openGLError = glGetError())
   {													
-    dst << "OGL error " << openGLError << std::endl;
+    dst << "OGL error " << openGLError << "\n";
   };
 }
 

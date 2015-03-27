@@ -5,7 +5,7 @@
 
 
 Texture::Texture(const Bitmap &bitmap)
-  : mSize(bitmap.GetSize()), mTextureId(0)
+  : mTextureId(0), mSize(bitmap.GetSize())
 {
   if(!mSize.x || !mSize.y || !IsPow2(mSize.x) || !IsPow2(mSize.y))
   {

@@ -12,20 +12,20 @@
 class ISprite;
 typedef std::shared_ptr<ISprite> PSprite;
 
-/// Спрайт. Рисуется графическим движком.
+/// РЎРїСЂР°Р№С‚. Р РёСЃСѓРµС‚СЃСЏ РіСЂР°С„РёС‡РµСЃРєРёРј РґРІРёР¶РєРѕРј.
 class ISprite
 {
 public:
-  ISprite(){};
-  virtual ~ISprite(){};
+  ISprite(){}
+  virtual ~ISprite(){}
 
-  /// Размер спрайта.
+  /// Р Р°Р·РјРµСЂ СЃРїСЂР°Р№С‚Р°.
   virtual const glm::uvec2 &GetSize() = 0;
 
-  /// Получить геометрию.
+  /// РџРѕР»СѓС‡РёС‚СЊ РіРµРѕРјРµС‚СЂРёСЋ.
   virtual const std::vector<Vertex> &GetGeometry() = 0;
 
-  /// Получить текстуру.
+  /// РџРѕР»СѓС‡РёС‚СЊ С‚РµРєСЃС‚СѓСЂСѓ.
   virtual PTexture GetTexture() = 0;
 
 };

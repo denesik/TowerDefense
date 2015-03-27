@@ -15,11 +15,23 @@ SOURCES += main.cpp \
     Window.cpp \
     Texture.cpp \
     Bitmap.cpp \
-    lodepng/lodepng.cpp
+    lodepng/lodepng.cpp \
+    Color.cpp \
+    Render.cpp \
+    RenderErrorChecker.cpp \
+    SpriteQuad.cpp \
+    TextureManager.cpp
 
 HEADERS += \
     Game.h \
     Window.h \
     Texture.h \
     Bitmap.h \
-    lodepng/lodepng.h
+    lodepng/lodepng.h \
+    Color.h \
+    Render.h \
+    RenderErrorChecker.h \
+    Sprite.h \
+    SpriteQuad.h \
+    TextureManager.h \
+    Vertex.h

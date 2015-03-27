@@ -3,7 +3,7 @@
 #ifndef SpriteQuad_h__
 #define SpriteQuad_h__
 
-#include "sprite.h"
+#include "Sprite.h"
 
 class SpriteQuad : public ISprite
 {
@@ -11,13 +11,13 @@ public:
   SpriteQuad(PTexture texture);
   ~SpriteQuad();
 
-  /// Размер спрайта.
+  /// Р Р°Р·РјРµСЂ СЃРїСЂР°Р№С‚Р°.
   const glm::uvec2 &GetSize();
 
-  /// Получить геометрию.
+  /// РџРѕР»СѓС‡РёС‚СЊ РіРµРѕРјРµС‚СЂРёСЋ.
   const std::vector<Vertex> &GetGeometry();
 
-  /// Получить текстуру.
+  /// РџРѕР»СѓС‡РёС‚СЊ С‚РµРєСЃС‚СѓСЂСѓ.
   PTexture GetTexture();
 
 private:
