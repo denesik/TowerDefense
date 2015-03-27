@@ -42,6 +42,8 @@ public:
   /// Разрушить текстуру.
   ~Texture();
 
+  const glm::uvec2 &GetSize();
+
 private:
   // id текстуры. 0 - не существующая текстура.
   unsigned int mTextureId;

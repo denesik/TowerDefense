@@ -53,3 +53,8 @@ Texture::~Texture()
   RenderCheckErrors();
 }
 
+const glm::uvec2 & Texture::GetSize()
+{
+  return mSize;
+}
+
