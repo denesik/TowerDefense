@@ -18,7 +18,7 @@ Color::Color(glm::u8 r, glm::u8 g, glm::u8 b, glm::u8 a)
 
 }
 
-glm::vec4 Color::Tof32Color()
+glm::vec4 Color::Tof32Color() const
 {
   return glm::vec4(static_cast<glm::f32>(raw.r) / 255.0f, 
                    static_cast<glm::f32>(raw.g) / 255.0f, 

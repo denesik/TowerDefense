@@ -14,7 +14,7 @@ public:
 
   Color(glm::u8 r, glm::u8 g, glm::u8 b, glm::u8 a);
 
-  glm::vec4 Tof32Color();
+  glm::vec4 Tof32Color() const;
 
 public:
   glm::uvec4 raw;

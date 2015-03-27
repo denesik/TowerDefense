@@ -2,6 +2,7 @@
 #define GAME_H
 
 #include "Window.h"
+#include "Render.h"
 
 class Game
 {
@@ -16,6 +17,7 @@ private:
   bool Initialize();
 
   Window *mWindow;
+  Render *mRender;
 
 };
 

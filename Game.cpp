@@ -7,6 +7,7 @@
 Game::Game()
 {
   mWindow = nullptr;
+  mRender = nullptr;
 }
 
 Game::~Game()
@@ -21,12 +22,25 @@ bool Game::Initialize()
   try
   {
     mWindow = new Window;
+    mWindow->SetCurrentContext();
   }
   catch (WindowException *e)
   {
   	printf("%s\n", e->what());
     return false;
   }
+
+  try
+  {
+    Render::Initialize();
+  }
+  catch (RenderException *e)
+  {
+    printf("%s\n", e->what());
+    return false;
+  }
+
+  mRender = new Render;
 
   return true;
 }
@@ -42,10 +56,13 @@ int Game::Run()
   while(!mWindow->WindowShouldClose())
   {
 
+    mRender->Draw();
+
     mWindow->SwapBuffers();
     Window::WindowSystemPollEvents();
   }
 
+  delete mRender;
   delete mWindow;
   Window::WindowSystemTerminate();
 

@@ -5,8 +5,8 @@
 
 Window::Window()
 {
-  glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 2);
-  glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 1);
+  glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 1);
+  glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 2);
   //glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
   //glfwWindowHint(GLFW_SAMPLES, 4);
 
@@ -27,16 +27,9 @@ Window::~Window()
 {
 }
 
-void ErrorCallback(int ,const char* description)
-{
-  printf("%s\n", description);
-}
-
 void Window::WindowSystemInit()
 {
-  //glfwSetErrorCallback([](int ,const char* description){printf("%s\n", description);});
-
-  glfwSetErrorCallback(&ErrorCallback);
+  glfwSetErrorCallback([](int ,const char* description){printf("%s\n", description);});
 
   if(glfwInit() != GL_TRUE)
   {

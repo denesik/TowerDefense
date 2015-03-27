@@ -1,7 +1,7 @@
 #pragma once
 
-#ifndef Sprite_h__
-#define Sprite_h__
+#ifndef BaseSprite_h__
+#define BaseSprite_h__
 
 #include <glm/glm.hpp>
 #include <vector>
@@ -9,15 +9,15 @@
 #include "Vertex.h"
 #include "Texture.h"
 
-class ISprite;
-typedef std::shared_ptr<ISprite> PSprite;
+class BaseSprite;
+typedef std::shared_ptr<BaseSprite> PBaseSprite;
 
 /// Спрайт. Рисуется графическим движком.
-class ISprite
+class BaseSprite
 {
 public:
-  ISprite(){}
-  virtual ~ISprite(){}
+  BaseSprite(const glm::vec3 &pos = glm::vec3(), const glm::vec3 &rot = glm::vec3());
+  virtual ~BaseSprite();
 
   /// Размер спрайта.
   virtual const glm::uvec2 &GetSize() = 0;
@@ -28,6 +28,14 @@ public:
   /// Получить текстуру.
   virtual PTexture GetTexture() = 0;
 
+  /// Получить матрицу модели.
+  virtual glm::mat4 GetModelMat();
+
+protected:
+
+  glm::vec3 mPos;
+  glm::vec3 mRot;
+
 };
 
-#endif // Sprite_h__
+#endif // BaseSprite_h__

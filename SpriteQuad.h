@@ -3,12 +3,12 @@
 #ifndef SpriteQuad_h__
 #define SpriteQuad_h__
 
-#include "Sprite.h"
+#include "BaseSprite.h"
 
-class SpriteQuad : public ISprite
+class SpriteQuad : public BaseSprite
 {
 public:
-  SpriteQuad(PTexture texture);
+  SpriteQuad(const glm::vec3 &pos, const glm::vec3 &rot, const glm::uvec2 size, PTexture texture);
   ~SpriteQuad();
 
   /// Размер спрайта.
@@ -25,6 +25,7 @@ private:
   glm::uvec2 mSize;
   std::vector<Vertex> mData;
   PTexture mTexture;
+
 };
 
 

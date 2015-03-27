@@ -20,7 +20,8 @@ SOURCES += main.cpp \
     Render.cpp \
     RenderErrorChecker.cpp \
     SpriteQuad.cpp \
-    TextureManager.cpp
+    TextureManager.cpp \
+    BaseSprite.cpp
 
 HEADERS += \
     Game.h \
@@ -31,7 +32,7 @@ HEADERS += \
     Color.h \
     Render.h \
     RenderErrorChecker.h \
-    Sprite.h \
     SpriteQuad.h \
     TextureManager.h \
-    Vertex.h
+    Vertex.h \
+    BaseSprite.h
