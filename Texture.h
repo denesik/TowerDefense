@@ -19,6 +19,7 @@ public:
   enum
   {
     INCORRECT_SIZE,
+    TEXTURE_NOT_CREATED,
 
     COUNT,
   };
@@ -40,7 +41,7 @@ public:
 
 private:
   // id текстуры. 0 - не существующая текстура.
-  unsigned int mId;
+  unsigned int mTextureId;
 
   // Размер текстуры в текстелях.
   glm::uvec2 mSize;

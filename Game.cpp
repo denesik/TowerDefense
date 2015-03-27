@@ -1,5 +1,8 @@
 #include "Game.h"
 
+#include "RenderErrorChecker.h"
+#include <iostream>
+
 
 Game::Game()
 {
