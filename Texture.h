@@ -4,14 +4,34 @@
 #include <glm/glm.hpp>
 #include "Bitmap.h"
 
+class TextureException: public std::exception
+{
+public:
+  TextureException(unsigned int id)
+    : mId(id)
+  {
+  }
+  virtual const char *what() const throw()
+  {
+    return "Texture exception";
+  }
+
+  enum
+  {
+    INCORRECT_SIZE,
+
+    COUNT,
+  };
+
+private:
+  const unsigned int mId;
+};
+
+
 /// Текстура. Находится в видеопамяти.
 class Texture
 {
 public:
-  /// Создать пустую текстуру.
-  /// Текстура не создается в видеопамяти.
-  Texture();
-
   /// Создать текстуру на основе битмапы.
   Texture(const Bitmap &bitmap);
 

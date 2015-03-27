@@ -4,6 +4,8 @@
 #include <glm/glm.hpp>
 #include <vector>
 #include <string>
+#include "Color.h"
+
 
 class BitmapException: public std::exception
 {
@@ -12,7 +14,7 @@ public:
     : mId(id)
   {
   }
-  virtual const char* what() const throw()
+  virtual const char *what() const throw()
   {
     return "Bitmap exception";
   }
@@ -37,6 +39,9 @@ public:
 
   /// Загружает битмапу из png файла.
   Bitmap(const std::string &fileName);
+
+  /// Создать битмапу заданного размера и цвета.
+  Bitmap(const glm::uvec2 &size, const Color &color = Color::black);
 
   /// Разрушает битмапу.
   ~Bitmap();

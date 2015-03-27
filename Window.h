@@ -12,7 +12,7 @@ public:
     : mId(id)
   {
   }
-  virtual const char* what() const throw()
+  virtual const char *what() const throw()
   {
     return "Window exception";
   }
