@@ -13,12 +13,17 @@ Game::~Game()
 
 bool Game::Initialize()
 {
-  if(!Window::WindowSystemInit())
+  Window::WindowSystemInit();
+
+  try
   {
+    mWindow = new Window;
+  }
+  catch (WindowException* e)
+  {
+  	printf("%s\n", e->what());
     return false;
   }
-
-  mWindow = new Window;
 
   return true;
 }
@@ -27,6 +32,7 @@ int Game::Run()
 {
   if(!Initialize())
   {
+    system("pause\n");
     return 0;
   }
 
@@ -40,5 +46,6 @@ int Game::Run()
   delete mWindow;
   Window::WindowSystemTerminate();
 
+  system("pause\n");
   return 0;
 }

@@ -10,7 +10,7 @@ Texture::Texture(const Bitmap &bitmap)
 {
   if(!IsPow2(mSize.x) || !IsPow2(mSize.y))
   {
-    mSize = {0, 0};
+    mSize = glm::vec2();
     printf("Error. Texture size is not pow 2\n");
     return;
   }

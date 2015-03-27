@@ -1,6 +1,6 @@
 #include "Bitmap.h"
 
-#include <lodepng/lodepng.h>
+#include "lodepng/lodepng.h"
 
 Bitmap::Bitmap()
 {
@@ -14,6 +14,7 @@ Bitmap::Bitmap(const std::string &fileName)
   if(error)
   {
     printf("Lodepng load error: %s\n", lodepng_error_text(error));
+    throw new BitmapException(BitmapException::FILE_NOT_FOUND);
   }
 }
 

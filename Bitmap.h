@@ -5,6 +5,29 @@
 #include <vector>
 #include <string>
 
+class BitmapException: public std::exception
+{
+public:
+  BitmapException(unsigned int id)
+    : mId(id)
+  {
+  }
+  virtual const char* what() const throw()
+  {
+    return "Bitmap exception";
+  }
+
+  enum
+  {
+    FILE_NOT_FOUND,
+
+    COUNT,
+  };
+
+private:
+  const unsigned int mId;
+};
+
 /// Битовое изображение в оперативной памяти.
 class Bitmap
 {

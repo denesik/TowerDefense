@@ -3,6 +3,31 @@
 
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
+#include <memory>
+
+class WindowException: public std::exception
+{
+public:
+  WindowException(unsigned int id)
+    : mId(id)
+  {
+  }
+  virtual const char* what() const throw()
+  {
+    return "Window exception";
+  }
+
+  enum
+  {
+    WINDOW_SYSTEM_NOT_INICIALIZED,
+    NOT_CREATED,
+
+    COUNT,
+  };
+
+private:
+  const unsigned int mId;
+};
 
 
 class Window
@@ -12,7 +37,7 @@ public:
   ~Window();
 
   /// Инициализация оконной системы.
-  static bool WindowSystemInit();
+  static void WindowSystemInit();
 
   /// Завершить работу с оконной системой.
   static void WindowSystemTerminate();
@@ -31,7 +56,16 @@ public:
 
 private:
 
-  GLFWwindow *mWindow;
+  struct WindowDeleter
+  {
+    void operator()(GLFWwindow *window) const
+    {
+      printf("window delete %i\n", window);
+      glfwDestroyWindow(window);
+    }
+  };
+
+  std::unique_ptr<GLFWwindow, WindowDeleter> mWindow;
 
 };
 

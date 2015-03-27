@@ -1,6 +1,7 @@
 #include "Window.h"
 
 #include <stdio.h>
+#include <assert.h>
 
 Window::Window()
 {
@@ -11,11 +12,11 @@ Window::Window()
 
   GLFWmonitor *monitor = nullptr;
 
-  mWindow = glfwCreateWindow(800, 600, "title", monitor, nullptr);
+  mWindow = (decltype(mWindow))(glfwCreateWindow(800, 600, "title", monitor, nullptr));
+
   if (!mWindow)
   {
-    // Кинуть исключение
-    return;
+    throw new WindowException(WindowException::NOT_CREATED);
   }
 
   //glfwSwapInterval(0);
@@ -24,17 +25,23 @@ Window::Window()
 
 Window::~Window()
 {
-  if(mWindow)
-  {
-    glfwDestroyWindow(mWindow);
-  }
 }
 
-bool Window::WindowSystemInit()
+void ErrorCallback(int ,const char* description)
 {
-  glfwSetErrorCallback([](int ,const char* description){printf("%s\n", description);});
+  printf("%s\n", description);
+}
 
-  return glfwInit();
+void Window::WindowSystemInit()
+{
+  //glfwSetErrorCallback([](int ,const char* description){printf("%s\n", description);});
+
+  glfwSetErrorCallback(&ErrorCallback);
+
+  if(glfwInit() != GL_TRUE)
+  {
+    throw new WindowException(WindowException::WINDOW_SYSTEM_NOT_INICIALIZED);
+  }
 }
 
 void Window::WindowSystemTerminate()
@@ -49,17 +56,20 @@ void Window::WindowSystemPollEvents()
 
 void Window::SetCurrentContext()
 {
-  glfwMakeContextCurrent(mWindow);
+  assert(mWindow);
+  glfwMakeContextCurrent(mWindow.get());
 }
 
 bool Window::WindowShouldClose()
 {
-  return glfwWindowShouldClose(mWindow);
+  assert(mWindow);
+  return glfwWindowShouldClose(mWindow.get()) == GL_TRUE;
 }
 
 void Window::SwapBuffers()
 {
-  glfwSwapBuffers(mWindow);
+  assert(mWindow);
+  glfwSwapBuffers(mWindow.get());
 }
 
 
