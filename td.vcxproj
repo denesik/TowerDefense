@@ -85,6 +85,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Render.cpp" />
     <ClCompile Include="RenderErrorChecker.cpp" />
+    <ClCompile Include="BaseShader.cpp" />
     <ClCompile Include="SpriteQuad.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="TextureManager.cpp" />
@@ -92,6 +93,7 @@
     <ClCompile Include="Window.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BaseShader.h" />
     <ClInclude Include="BaseSprite.h" />
     <ClInclude Include="Bitmap.h" />
     <ClInclude Include="Color.h" />
