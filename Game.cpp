@@ -17,7 +17,7 @@ Game::~Game()
 
 bool Game::Initialize()
 {
-  Window::WindowSystemInit();
+  Window::WindowSystemInitialize();
 
   try
   {
@@ -64,7 +64,7 @@ int Game::Run()
 
   delete mRender;
   delete mWindow;
-  Window::WindowSystemTerminate();
+  Window::WindowSystemFinally();
 
   system("pause\n");
   return 0;

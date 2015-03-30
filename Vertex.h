@@ -8,6 +8,10 @@
 /// Описание вершины.
 struct Vertex
 {
+  Vertex();
+
+  Vertex(const glm::vec3 &p, const glm::vec2 &t = glm::vec2(), const glm::vec4 &c = glm::vec4());
+
   glm::vec3 point;    // Точка
   glm::vec2 text;     // Текстурные координаты
   glm::vec4 color;    // Цвет

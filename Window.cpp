@@ -27,9 +27,16 @@ Window::~Window()
 {
 }
 
-void Window::WindowSystemInit()
+void glfwErrorCallback(int ,const char* description)
 {
-  glfwSetErrorCallback([](int ,const char* description){printf("%s\n", description);});
+  printf("%s\n", description);
+}
+
+void Window::WindowSystemInitialize()
+{
+  //glfwSetErrorCallback([](int ,const char* description){printf("%s\n", description);});
+
+  glfwSetErrorCallback(&glfwErrorCallback);
 
   if(glfwInit() != GL_TRUE)
   {
@@ -37,7 +44,7 @@ void Window::WindowSystemInit()
   }
 }
 
-void Window::WindowSystemTerminate()
+void Window::WindowSystemFinally()
 {
   glfwTerminate();
 }

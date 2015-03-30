@@ -37,10 +37,10 @@ public:
   ~Window();
 
   /// Инициализация оконной системы.
-  static void WindowSystemInit();
+  static void WindowSystemInitialize();
 
   /// Завершить работу с оконной системой.
-  static void WindowSystemTerminate();
+  static void WindowSystemFinally();
 
   /// Обработать события.
   static void WindowSystemPollEvents();
