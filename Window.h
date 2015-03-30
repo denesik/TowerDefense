@@ -1,72 +1,22 @@
-#ifndef WINDOW_H
-#define WINDOW_H
+#pragma once
 
-#include <GL/glew.h>
-#include <GLFW/glfw3.h>
-#include <memory>
+#ifndef Window_h__
+#define Window_h__
 
-class WindowException: public std::exception
+class IWindow
 {
 public:
-  WindowException(unsigned int id)
-    : mId(id)
-  {
-  }
-  virtual const char *what() const throw()
-  {
-    return "Window exception";
-  }
+  IWindow(){};
+  virtual ~IWindow(){};
 
-  enum
-  {
-    WINDOW_SYSTEM_NOT_INICIALIZED,
-    NOT_CREATED,
+  /// Установить текущий контекст для данного окна.
+  virtual void SetCurrentContext() = 0;
 
-    COUNT,
-  };
+  /// Должно ли окно закрыться?
+  virtual bool WindowShouldClose() = 0;
 
-private:
-  const unsigned int mId;
+  /// Переключить буферы.
+  virtual void SwapBuffers() = 0;
 };
 
-
-class Window
-{
-public:
-  Window();
-  ~Window();
-
-  /// РРЅРёС†РёР°Р»РёР·Р°С†РёСЏ РѕРєРѕРЅРЅРѕР№ СЃРёСЃС‚РµРјС‹.
-  static void WindowSystemInitialize();
-
-  /// Р—Р°РІРµСЂС€РёС‚СЊ СЂР°Р±РѕС‚Сѓ СЃ РѕРєРѕРЅРЅРѕР№ СЃРёСЃС‚РµРјРѕР№.
-  static void WindowSystemFinally();
-
-  /// РћР±СЂР°Р±РѕС‚Р°С‚СЊ СЃРѕР±С‹С‚РёСЏ.
-  static void WindowSystemPollEvents();
-
-  /// РЈСЃС‚Р°РЅРѕРІРёС‚СЊ С‚РµРєСѓС‰РёР№ РєРѕРЅС‚РµРєСЃС‚ РґР»СЏ РґР°РЅРЅРѕРіРѕ РѕРєРЅР°.
-  void SetCurrentContext();
-
-  /// Р”РѕР»Р¶РЅРѕ Р»Рё РѕРєРЅРѕ Р·Р°РєСЂС‹С‚СЊСЃСЏ?
-  bool WindowShouldClose();
-
-  /// РџРµСЂРµРєР»СЋС‡РёС‚СЊ Р±СѓС„РµСЂС‹.
-  void SwapBuffers();
-
-private:
-
-  struct WindowDeleter
-  {
-    void operator()(GLFWwindow *window) const
-    {
-      printf("window delete\n");
-      glfwDestroyWindow(window);
-    }
-  };
-
-  std::unique_ptr<GLFWwindow, WindowDeleter> mWindow;
-
-};
-
-#endif // WINDOW_H
+#endif // Window_h__

@@ -1,9 +1,9 @@
-#include "Window.h"
+#include "WindowGL.h"
 
 #include <stdio.h>
 #include <assert.h>
 
-Window::Window()
+WindowGL::WindowGL()
 {
   glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 1);
   glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 2);
@@ -23,7 +23,7 @@ Window::Window()
   printf("Window created\n");
 }
 
-Window::~Window()
+WindowGL::~WindowGL()
 {
 }
 
@@ -32,7 +32,7 @@ void glfwErrorCallback(int ,const char* description)
   printf("%s\n", description);
 }
 
-void Window::WindowSystemInitialize()
+void WindowGL::WindowSystemInitialize()
 {
   //glfwSetErrorCallback([](int ,const char* description){printf("%s\n", description);});
 
@@ -44,29 +44,29 @@ void Window::WindowSystemInitialize()
   }
 }
 
-void Window::WindowSystemFinally()
+void WindowGL::WindowSystemFinally()
 {
   glfwTerminate();
 }
 
-void Window::WindowSystemPollEvents()
+void WindowGL::WindowSystemPollEvents()
 {
   glfwPollEvents();
 }
 
-void Window::SetCurrentContext()
+void WindowGL::SetCurrentContext()
 {
   assert(mWindow);
   glfwMakeContextCurrent(mWindow.get());
 }
 
-bool Window::WindowShouldClose()
+bool WindowGL::WindowShouldClose()
 {
   assert(mWindow);
   return glfwWindowShouldClose(mWindow.get()) == GL_TRUE;
 }
 
-void Window::SwapBuffers()
+void WindowGL::SwapBuffers()
 {
   assert(mWindow);
   glfwSwapBuffers(mWindow.get());

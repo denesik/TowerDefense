@@ -16,7 +16,7 @@ private:
 
   bool Initialize();
 
-  Window *mWindow;
+  IWindow *mWindow;
   Render *mRender;
 
 };

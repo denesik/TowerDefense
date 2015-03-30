@@ -1,5 +1,6 @@
 #include "Game.h"
 
+#include "WindowGL.h"
 #include "RenderErrorChecker.h"
 #include <iostream>
 
@@ -17,11 +18,11 @@ Game::~Game()
 
 bool Game::Initialize()
 {
-  Window::WindowSystemInitialize();
+  WindowGL::WindowSystemInitialize();
 
   try
   {
-    mWindow = new Window;
+    mWindow = new WindowGL;
     mWindow->SetCurrentContext();
   }
   catch (WindowException *e)
@@ -59,12 +60,12 @@ int Game::Run()
     mRender->Draw();
 
     mWindow->SwapBuffers();
-    Window::WindowSystemPollEvents();
+    WindowGL::WindowSystemPollEvents();
   }
 
   delete mRender;
   delete mWindow;
-  Window::WindowSystemFinally();
+  WindowGL::WindowSystemFinally();
 
   system("pause\n");
   return 0;
