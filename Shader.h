@@ -20,6 +20,9 @@ public:
   /// Установить шейдер.
   void Bind();
 
+  /// Вернуть идентификатор параметра шейдера.
+  unsigned int GetUniformLocation(const char *name);
+
 private:
 
   enum ShaderType
@@ -39,9 +42,6 @@ private:
 
   /// Удалить шейдер
   void DeleteShader(unsigned int shaderId);
-
-  /// Установить для uniform текстуры текстурную локацию.
-  void SetTextureUnit(const char *name, int location);
 
 private:
 

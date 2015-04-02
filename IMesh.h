@@ -15,8 +15,8 @@ typedef std::shared_ptr<IMesh> PMesh;
 class IMesh
 {
 public:
-  IMesh(void);
-  virtual ~IMesh(void);
+  IMesh(){};
+  virtual ~IMesh(){};
 
   /// Вернуть буфер вершин.
   virtual const std::vector<Vertex> &GetVertexBuffer() = 0;

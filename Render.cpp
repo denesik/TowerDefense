@@ -83,15 +83,6 @@ void Render::Draw()
   glGetError();
 }
 
-void DrawSprite(PBaseSprite sprite)
-{
-  //glm::mat4 orthoProjection = glm::ortho(0.0f, 800.0f, 600.0f, 0.0f, 0.1f, 100.0f);
-
-
-
-}
-
-
 
 
 

@@ -54,13 +54,6 @@ unsigned int Shader::CreateShader(char const *shader, ShaderType type)
   return shaderId;
 }
 
-
-void Shader::SetTextureUnit(const char *name, int location)
-{
-  GLint baseImageLoc = glGetUniformLocation(mProgramId, name);
-  glUniform1i(baseImageLoc, location);
-}
-
 void Shader::DeleteShader(unsigned int shaderId)
 {
   glDeleteShader(shaderId);
@@ -69,4 +62,9 @@ void Shader::DeleteShader(unsigned int shaderId)
 void Shader::Compile()
 {
 
+}
+
+unsigned int Shader::GetUniformLocation(const char *name)
+{
+  return glGetUniformLocation(mProgramId, name);
 }

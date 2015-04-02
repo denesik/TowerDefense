@@ -59,6 +59,8 @@ public:
 
   const glm::uvec2 &GetSize();
 
+  void Bind(TextureSlot slot);
+
 private:
   // id текстуры. 0 - не существующая текстура.
   unsigned int mTextureId;

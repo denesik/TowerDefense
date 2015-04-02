@@ -77,28 +77,28 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="BaseSprite.cpp" />
     <ClCompile Include="Bitmap.cpp" />
+    <ClCompile Include="BoxMesh.cpp" />
     <ClCompile Include="Color.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="lodepng\lodepng.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Model.cpp" />
     <ClCompile Include="Render.cpp" />
     <ClCompile Include="RenderErrorChecker.cpp" />
     <ClCompile Include="Shader.cpp" />
     <ClCompile Include="SimpleMaterial.cpp" />
-    <ClCompile Include="SpriteQuad.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="TextureManager.cpp" />
     <ClCompile Include="Vertex.cpp" />
     <ClCompile Include="WindowGL.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BoxMesh.h" />
     <ClInclude Include="IMaterial.h" />
     <ClInclude Include="IMesh.h" />
-    <ClInclude Include="IModel.h" />
+    <ClInclude Include="Model.h" />
     <ClInclude Include="Shader.h" />
-    <ClInclude Include="BaseSprite.h" />
     <ClInclude Include="Bitmap.h" />
     <ClInclude Include="Color.h" />
     <ClInclude Include="Game.h" />
@@ -106,8 +106,6 @@
     <ClInclude Include="Render.h" />
     <ClInclude Include="RenderErrorChecker.h" />
     <ClInclude Include="SimpleMaterial.h" />
-    <ClInclude Include="Sprite.h" />
-    <ClInclude Include="SpriteQuad.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="TextureManager.h" />
     <ClInclude Include="Vertex.h" />

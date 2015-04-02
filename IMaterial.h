@@ -18,7 +18,7 @@ public:
   virtual ~IMaterial(){};
 
   /// Установить текущий материал.
-  virtual void Bind(Shader &shader) = 0;
+  virtual void Bind(PShader &shader) = 0;
 
 };
 

@@ -58,3 +58,8 @@ const glm::uvec2 & Texture::GetSize()
   return mSize;
 }
 
+void Texture::Bind(TextureSlot slot)
+{
+
+}
+

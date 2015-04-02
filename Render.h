@@ -3,7 +3,6 @@
 #ifndef Render_h__
 #define Render_h__
 
-#include "BaseSprite.h"
 #include "Texture.h"
 
 
@@ -43,9 +42,6 @@ public:
 
   /// Нарисовать все.
   void Draw();
-
-  /// Нарисовать спрайт.
-  void DrawSprite(PBaseSprite sprite);
 
 };
 
