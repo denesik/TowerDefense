@@ -1,10 +1,10 @@
-#include "BaseShader.h"
+#include "Shader.h"
 
 #include <GL/glew.h>
 #include <vector>
 #include <assert.h>
 
-unsigned int BaseShader::ToShaderType(unsigned int shaderType)
+unsigned int Shader::ToShaderType(unsigned int shaderType)
 {
   assert(shaderType < SHADER_TYPE_COUNT);
   static unsigned int types[SHADER_TYPE_COUNT];
@@ -14,21 +14,21 @@ unsigned int BaseShader::ToShaderType(unsigned int shaderType)
 };
 
 
-BaseShader::BaseShader()
+Shader::Shader()
 {
 }
 
 
-BaseShader::~BaseShader()
+Shader::~Shader()
 {
 }
 
-void BaseShader::Use()
+void Shader::Bind()
 {
-  glUseProgram(GetProgramId());
+  glUseProgram(mProgramId);
 }
 
-unsigned int BaseShader::CreateShader(char const *shader, ShaderType type)
+unsigned int Shader::CreateShader(char const *shader, ShaderType type)
 {
   GLuint shaderId = glCreateShader(ShaderType(type));
 
@@ -55,13 +55,18 @@ unsigned int BaseShader::CreateShader(char const *shader, ShaderType type)
 }
 
 
-void BaseShader::SetTextureUnit(const char *name, int location)
+void Shader::SetTextureUnit(const char *name, int location)
 {
-  GLint baseImageLoc = glGetUniformLocation(GetProgramId(), name);
+  GLint baseImageLoc = glGetUniformLocation(mProgramId, name);
   glUniform1i(baseImageLoc, location);
 }
 
-void BaseShader::DeleteShader(unsigned int shaderId)
+void Shader::DeleteShader(unsigned int shaderId)
 {
   glDeleteShader(shaderId);
+}
+
+void Shader::Compile()
+{
+
 }

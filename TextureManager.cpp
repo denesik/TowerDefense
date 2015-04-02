@@ -11,9 +11,9 @@ TextureManager::~TextureManager(void)
 {
 }
 
-void TextureManager::LoadTexture(const std::string &fileName)
+void TextureManager::LoadTexture(const std::string &name)
 {
-  if(mTextures.find(fileName) != mTextures.end())
+  if(mTextures.find(name) != mTextures.end())
   {
     printf("LoadTexture error\n");
     // Текстура уже существует.
@@ -23,8 +23,8 @@ void TextureManager::LoadTexture(const std::string &fileName)
   try
   {
     // Грузим текстуру с фс.
-    Bitmap bitmap(fileName);
-    mTextures[fileName] = PTexture(new Texture(bitmap));
+    Bitmap bitmap(name);
+    mTextures[name] = PTexture(new Texture(bitmap));
   }
   catch(BitmapException *)
   {
@@ -38,9 +38,9 @@ void TextureManager::LoadTexture(const std::string &fileName)
   }
 }
 
-PTexture TextureManager::GetTexture(const std::string &fileName) const
+PTexture TextureManager::GetTexture(const std::string &name) const
 {
-  auto itTexture = mTextures.find(fileName);
+  auto itTexture = mTextures.find(name);
   if(itTexture == mTextures.end())
   {
     // Текстура не найдена.

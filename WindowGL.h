@@ -1,7 +1,7 @@
 #ifndef WINDOW_GL_H
 #define WINDOW_GL_H
 
-#include "Window.h"
+#include "IWindow.h"
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 #include <memory>

@@ -2,20 +2,25 @@
 #ifndef BaseShader_h__
 #define BaseShader_h__
 
+#include <memory>
+
+class Shader;
+typedef std::shared_ptr<Shader> PShader;
+
 /// Шейдер.
-class BaseShader
+class Shader
 {
 public:
-  BaseShader();
-  virtual ~BaseShader();
+  Shader();
+  ~Shader();
 
   /// Скомпилировать шейдер.
-  virtual void Compile() = 0;
+  void Compile();
 
   /// Установить шейдер.
-  void Use();
+  void Bind();
 
-protected:
+private:
 
   enum ShaderType
   {
@@ -25,8 +30,9 @@ protected:
     SHADER_TYPE_COUNT,
   };
 
-  /// Вернуть шейдер.
-  virtual unsigned int GetProgramId() = 0;
+  unsigned int mProgramId;
+
+private:
 
   /// Загрузить шейдер.
   unsigned int CreateShader(char const *shader, ShaderType type);

@@ -5,6 +5,21 @@
 #include "Bitmap.h"
 #include <memory>
 
+/// Описание текстурных слотов.
+enum TextureSlot
+{
+  TEXTURE_SLOT_0,
+  TEXTURE_SLOT_1,
+  TEXTURE_SLOT_2,
+  TEXTURE_SLOT_3,
+  TEXTURE_SLOT_4,
+  TEXTURE_SLOT_5,
+  TEXTURE_SLOT_6,
+  TEXTURE_SLOT_7,
+
+  TEXTURE_SLOT_COUNT,
+};
+
 class TextureException: public std::exception
 {
 public:

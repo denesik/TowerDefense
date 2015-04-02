@@ -85,7 +85,8 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Render.cpp" />
     <ClCompile Include="RenderErrorChecker.cpp" />
-    <ClCompile Include="BaseShader.cpp" />
+    <ClCompile Include="Shader.cpp" />
+    <ClCompile Include="SimpleMaterial.cpp" />
     <ClCompile Include="SpriteQuad.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="TextureManager.cpp" />
@@ -93,7 +94,10 @@
     <ClCompile Include="WindowGL.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="BaseShader.h" />
+    <ClInclude Include="IMaterial.h" />
+    <ClInclude Include="IMesh.h" />
+    <ClInclude Include="IModel.h" />
+    <ClInclude Include="Shader.h" />
     <ClInclude Include="BaseSprite.h" />
     <ClInclude Include="Bitmap.h" />
     <ClInclude Include="Color.h" />
@@ -101,12 +105,13 @@
     <ClInclude Include="lodepng\lodepng.h" />
     <ClInclude Include="Render.h" />
     <ClInclude Include="RenderErrorChecker.h" />
+    <ClInclude Include="SimpleMaterial.h" />
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="SpriteQuad.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="TextureManager.h" />
     <ClInclude Include="Vertex.h" />
-    <ClInclude Include="Window.h" />
+    <ClInclude Include="IWindow.h" />
     <ClInclude Include="WindowGL.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -7,6 +7,7 @@
 #include "Texture.h"
 
 
+
 class RenderException: public std::exception
 {
 public:
@@ -45,6 +46,7 @@ public:
 
   /// Нарисовать спрайт.
   void DrawSprite(PBaseSprite sprite);
+
 };
 
 

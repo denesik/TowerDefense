@@ -19,11 +19,11 @@ public:
 
   /// Загрузить указанную текстуру.
   /// Если текстура с таким именем существует, она не загружается.
-  void LoadTexture(const std::string &fileName);
+  void LoadTexture(const std::string &name);
 
   /// Получить текстуру по имени.
   /// Если текстуры не существует, возвращается нулевой указатель.
-  PTexture GetTexture(const std::string &fileName) const;
+  PTexture GetTexture(const std::string &name) const;
 
 private:
 
