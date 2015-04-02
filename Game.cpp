@@ -57,7 +57,7 @@ int Game::Run()
   while(!mWindow->WindowShouldClose())
   {
 
-    mRender->Draw();
+//    mRender->Draw();
 
     mWindow->SwapBuffers();
     WindowGL::WindowSystemPollEvents();

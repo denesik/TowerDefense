@@ -16,6 +16,7 @@ unsigned int Shader::ToShaderType(unsigned int shaderType)
 
 Shader::Shader()
 {
+  mProgramId = 0;
 }
 
 

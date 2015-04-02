@@ -3,9 +3,8 @@
 #ifndef Render_h__
 #define Render_h__
 
-#include "Texture.h"
-
-
+#include "ICamera.h"
+#include "Model.h"
 
 class RenderException: public std::exception
 {
@@ -35,13 +34,16 @@ private:
 class Render
 {
 public:
-  Render(void);
-  ~Render(void);
+  Render();
+  ~Render();
 
   static void Initialize();
 
-  /// Нарисовать все.
-  void Draw();
+  /// Нарисовать модель в заданной позиции с заданным поворотом.
+  void DrawModel(const PModel &model, const glm::vec3 &position, const glm::vec3 &rotation);
+
+  /// Нарисовать все заданной камерой.
+  void Draw(const PCamera &camera);
 
 };
 
