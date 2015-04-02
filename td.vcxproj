@@ -83,6 +83,7 @@
     <ClCompile Include="Color.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="BaseMesh.cpp" />
+    <ClCompile Include="Keyboard.cpp" />
     <ClCompile Include="lodepng\lodepng.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Model.cpp" />
@@ -98,9 +99,12 @@
   <ItemGroup>
     <ClInclude Include="BoxMesh.h" />
     <ClInclude Include="Camera.h" />
+    <ClInclude Include="ConvertKey.h" />
     <ClInclude Include="ICamera.h" />
     <ClInclude Include="IMaterial.h" />
     <ClInclude Include="BaseMesh.h" />
+    <ClInclude Include="Keyboard.h" />
+    <ClInclude Include="Keys.h" />
     <ClInclude Include="Model.h" />
     <ClInclude Include="Shader.h" />
     <ClInclude Include="Bitmap.h" />

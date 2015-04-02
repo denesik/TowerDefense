@@ -12,6 +12,7 @@ typedef std::shared_ptr<BaseMesh> PMesh;
 
 /// Описание меша.
 /// Содержит полигональную сетку.
+/// В оперативной и графической памяти.
 class BaseMesh
 {
 public:
@@ -40,6 +41,10 @@ protected:
 
   std::vector<Vertex> mVertexBuffer;
   std::vector<Vertex> mIndexBuffer;
+
+  unsigned int	mVao;
+  unsigned int	mVideoVertexBuffer;
+  unsigned int	mVideoIndexBuffer;
 
 };
 
