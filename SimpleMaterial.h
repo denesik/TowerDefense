@@ -15,7 +15,7 @@ public:
   SimpleMaterial();
   ~SimpleMaterial();
 
-  void Bind(PShader &shader) override;
+  void Use(PShader &shader) override;
 
   void SetTexture(const PTexture &texture);
 

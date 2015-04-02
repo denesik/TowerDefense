@@ -35,7 +35,7 @@ public:
   void Compile();
 
   /// Установить меш на отрисовку.
-  void Bind();
+  void Use();
 
 protected:
 

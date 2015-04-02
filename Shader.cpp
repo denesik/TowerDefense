@@ -24,7 +24,7 @@ Shader::~Shader()
 {
 }
 
-void Shader::Bind()
+void Shader::Use()
 {
   glUseProgram(mProgramId);
 }

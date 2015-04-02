@@ -38,7 +38,7 @@ void BaseMesh::Compile()
 
 }
 
-void BaseMesh::Bind()
+void BaseMesh::Use()
 {
 
 }

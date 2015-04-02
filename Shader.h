@@ -18,7 +18,7 @@ public:
   void Compile();
 
   /// Установить шейдер.
-  void Bind();
+  void Use();
 
   /// Вернуть идентификатор параметра шейдера.
   unsigned int GetUniformLocation(const char *name);
