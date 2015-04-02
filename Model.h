@@ -4,7 +4,7 @@
 #define BaseModel_h__
 
 #include <memory>
-#include "IMesh.h"
+#include "BaseMesh.h"
 #include "IMaterial.h"
 #include "Shader.h"
 

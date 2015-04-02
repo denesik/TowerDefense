@@ -4,21 +4,15 @@
 #define BoxMesh_h__
 
 #include <glm/glm.hpp>
-#include "IMesh.h"
+#include "BaseMesh.h"
 
 
 /// Меш.
-class BoxMesh : public IMesh
+class BoxMesh : public BaseMesh
 {
 public:
   BoxMesh(unsigned char sideMask = SIDE_ALL, const glm::vec3 &size = glm::vec3(1.0f, 1.0f, 1.0f));
   ~BoxMesh();
-
-  /// Вернуть буфер вершин.
-  const std::vector<Vertex> &GetVertexBuffer() override;
-
-  /// Вернуть буфер индесов
-  const std::vector<Vertex> &GetIndexBuffer() override;
 
   /// Сгенерировать меш по заданным параметрам.
   void Generate();
@@ -38,9 +32,6 @@ public:
   };
 
 private:
-
-  std::vector<Vertex> mVertexBuffer;
-  std::vector<Vertex> mIndexBuffer;
 
   glm::vec3 mSize;
   unsigned char mSideMask;
