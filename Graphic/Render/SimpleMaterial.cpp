@@ -15,7 +15,8 @@ SimpleMaterial::~SimpleMaterial(void)
 
 void SimpleMaterial::Use(PShader &shader)
 {
-  mTexture->Bind(TEXTURE_SLOT_0);
+  // Устанавливаем текстуру в шейдер.
+  mTexture->Set(TEXTURE_SLOT_0);
   glUniform1i(shader->GetUniformLocation(make_str(mTexture)), TEXTURE_SLOT_0);
 }
 

@@ -28,10 +28,20 @@ public:
 
   void SetNear(float near);
 
+  void RotateX(float angle);
+  void RotateY(float angle);
+
+  void MoveX(float dist);
+  void MoveY(float dist);
+  void MoveZ(float dist);
+
 private:
 
   glm::mat4 mView;
   glm::mat4 mProjection;
+
+  glm::mat4 mViewCurr;
+  glm::mat4 mViewRotateY;
 
   float mFov;
   float mAspect;

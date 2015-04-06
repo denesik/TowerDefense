@@ -57,9 +57,11 @@ public:
   /// Разрушить текстуру.
   ~Texture();
 
+  /// Вернуть размер текстуры.
   const glm::uvec2 &GetSize();
 
-  void Bind(TextureSlot slot);
+  /// Установить текстуру на заданный текстурный слот.
+  void Set(TextureSlot slot);
 
 private:
   // id текстуры. 0 - не существующая текстура.
