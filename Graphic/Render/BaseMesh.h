@@ -20,7 +20,10 @@ public:
   virtual ~BaseMesh();
 
   /// Создать буферы в видео памяти.
-  void Compile();
+  void Create();
+
+  /// Уничтожить буферы в видеопамяти.
+  void Release();
 
   /// Установить меш на отрисовку.
   void Use();
@@ -30,9 +33,9 @@ protected:
   std::vector<Vertex> mVertexBuffer;
   std::vector<unsigned int> mIndexBuffer;
 
-  unsigned int	mVao;
-  unsigned int	mVideoVertexBuffer;
-  unsigned int	mVideoIndexBuffer;
+  unsigned int mVao;
+  unsigned int mVideoVertexBuffer;
+  unsigned int mVideoIndexBuffer;
 
 };
 
