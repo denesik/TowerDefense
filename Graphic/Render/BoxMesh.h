@@ -8,6 +8,7 @@
 
 
 /// Меш.
+/// Создает параллепипед указанного размера из указанных сторон.
 class BoxMesh : public BaseMesh
 {
 public:
@@ -35,6 +36,11 @@ private:
 
   glm::vec3 mSize;
   unsigned char mSideMask;
+
+private:
+
+  unsigned int GetCountSides();
+
 };
 
 

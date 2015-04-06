@@ -19,18 +19,6 @@ public:
   BaseMesh();
   virtual ~BaseMesh();
 
-  /// Вернуть буфер вершин.
-  const std::vector<Vertex> &GetVertexBuffer() const;
-
-  /// Вернуть буфер индесов
-  const std::vector<Vertex> &GetIndexBuffer() const;
-
-  /// Установить буфер вершин.
-  void SetVertexBuffer(const std::vector<Vertex> &vertexBuffer);
-
-  /// Установить буфер индесов
-  void SetIndexBuffer(const std::vector<Vertex> &indexBuffer);
-
   /// Создать буферы в видео памяти.
   void Compile();
 
@@ -40,7 +28,7 @@ public:
 protected:
 
   std::vector<Vertex> mVertexBuffer;
-  std::vector<Vertex> mIndexBuffer;
+  std::vector<unsigned int> mIndexBuffer;
 
   unsigned int	mVao;
   unsigned int	mVideoVertexBuffer;
