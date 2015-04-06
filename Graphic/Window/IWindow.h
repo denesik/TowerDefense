@@ -3,6 +3,8 @@
 #ifndef Window_h__
 #define Window_h__
 
+#include <functional>
+#include <glm/glm.hpp>
 #include "IKeyboard.h"
 
 class IWindow
@@ -22,6 +24,9 @@ public:
 
   /// Получить клавиатуру.
   virtual const IKeyboard &GetKeyboard() = 0;
+
+  /// Установить каллбек на событие изменение размеров окна.
+  virtual void SetResizeCallback(std::function<void(glm::uvec2)> callback) = 0;
 };
 
 #endif // Window_h__

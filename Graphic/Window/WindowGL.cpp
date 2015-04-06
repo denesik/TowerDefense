@@ -46,6 +46,15 @@ void WindowGL::GlfwKeyCallback(GLFWwindow *window, int key, int scancode, int ac
   }
 }
 
+void WindowGL::GlfwResizeCallback(GLFWwindow* window, int width, int height)
+{
+  WindowGL *windowGL = static_cast<WindowGL *>(glfwGetWindowUserPointer(window));
+  if(windowGL && windowGL->mResizeCallback)
+  {
+    windowGL->mResizeCallback(glm::uvec2(width, height));
+  }
+}
+
 void WindowGL::WindowSystemInitialize()
 {
   //glfwSetErrorCallback([](int ,const char* description){printf("%s\n", description);});
@@ -89,6 +98,11 @@ void WindowGL::SwapBuffers()
 const IKeyboard &WindowGL::GetKeyboard()
 {
   return *mKeyboard;
+}
+
+void WindowGL::SetResizeCallback(std::function<void(glm::uvec2)> callback)
+{
+  mResizeCallback = callback;
 }
 
 

@@ -58,6 +58,8 @@ public:
 
   const IKeyboard &GetKeyboard() override;
 
+  void SetResizeCallback(std::function<void(glm::uvec2)> callback) override;
+
 private:
 
   struct WindowDeleter
@@ -74,10 +76,14 @@ private:
   std::unique_ptr<KeyboardGLFW> mKeyboard;
 
 
+  std::function<void(glm::uvec2)> mResizeCallback;
+
+private:
+
   // Функции обратного вызова для glfw.
   static void GlfwErrorCallback(int ,const char* description);
   static void GlfwKeyCallback(GLFWwindow *window, int key, int scancode, int action, int mods);
-
+  static void GlfwResizeCallback(GLFWwindow* window, int width, int height);
 };
 
 #endif // WINDOW_GL_H
