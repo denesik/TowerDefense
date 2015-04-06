@@ -5,6 +5,7 @@
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 #include <memory>
+#include "KeyboardGLFW.h"
 
 class WindowException: public std::exception
 {
@@ -47,13 +48,15 @@ public:
   static void WindowSystemPollEvents();
 
   /// Установить текущий контекст для данного окна.
-  void SetCurrentContext();
+  void SetCurrentContext() override;
 
   /// Должно ли окно закрыться?
-  bool WindowShouldClose();
+  bool WindowShouldClose() override;
 
   /// Переключить буферы.
-  void SwapBuffers();
+  void SwapBuffers() override;
+
+  const IKeyboard &GetKeyboard() override;
 
 private:
 
@@ -67,6 +70,13 @@ private:
   };
 
   std::unique_ptr<GLFWwindow, WindowDeleter> mWindow;
+
+  std::unique_ptr<KeyboardGLFW> mKeyboard;
+
+
+  // Функции обратного вызова для glfw.
+  static void GlfwErrorCallback(int ,const char* description);
+  static void GlfwKeyCallback(GLFWwindow *window, int key, int scancode, int action, int mods);
 
 };
 

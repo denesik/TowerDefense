@@ -1,7 +1,7 @@
 #include "Game.h"
 
-#include "WindowGL.h"
-#include "RenderErrorChecker.h"
+#include "Graphic/Window/WindowGL.h"
+#include "Graphic/Render/RenderErrorChecker.h"
 #include <iostream>
 
 

@@ -10,6 +10,51 @@
       <Platform>Win32</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Game.h" />
+    <ClInclude Include="Graphic\Render\BaseMesh.h" />
+    <ClInclude Include="Graphic\Render\Bitmap.h" />
+    <ClInclude Include="Graphic\Render\BoxMesh.h" />
+    <ClInclude Include="Graphic\Render\Camera.h" />
+    <ClInclude Include="Graphic\Render\Color.h" />
+    <ClInclude Include="Graphic\Render\ICamera.h" />
+    <ClInclude Include="Graphic\Render\IMaterial.h" />
+    <ClInclude Include="Graphic\Render\Model.h" />
+    <ClInclude Include="Graphic\Render\Render.h" />
+    <ClInclude Include="Graphic\Render\RenderErrorChecker.h" />
+    <ClInclude Include="Graphic\Render\Shader.h" />
+    <ClInclude Include="Graphic\Render\SimpleMaterial.h" />
+    <ClInclude Include="Graphic\Render\Texture.h" />
+    <ClInclude Include="Graphic\Render\TextureManager.h" />
+    <ClInclude Include="Graphic\Render\Vertex.h" />
+    <ClInclude Include="Graphic\Window\ConvertKeyGlfw.h" />
+    <ClInclude Include="Graphic\Window\IKeyboard.h" />
+    <ClInclude Include="Graphic\Window\IWindow.h" />
+    <ClInclude Include="Graphic\Window\KeyboardGLFW.h" />
+    <ClInclude Include="Graphic\Window\Keys.h" />
+    <ClInclude Include="Graphic\Window\WindowGL.h" />
+    <ClInclude Include="lodepng\lodepng.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Game.cpp" />
+    <ClCompile Include="Graphic\Render\BaseMesh.cpp" />
+    <ClCompile Include="Graphic\Render\Bitmap.cpp" />
+    <ClCompile Include="Graphic\Render\BoxMesh.cpp" />
+    <ClCompile Include="Graphic\Render\Camera.cpp" />
+    <ClCompile Include="Graphic\Render\Color.cpp" />
+    <ClCompile Include="Graphic\Render\Model.cpp" />
+    <ClCompile Include="Graphic\Render\Render.cpp" />
+    <ClCompile Include="Graphic\Render\RenderErrorChecker.cpp" />
+    <ClCompile Include="Graphic\Render\Shader.cpp" />
+    <ClCompile Include="Graphic\Render\SimpleMaterial.cpp" />
+    <ClCompile Include="Graphic\Render\Texture.cpp" />
+    <ClCompile Include="Graphic\Render\TextureManager.cpp" />
+    <ClCompile Include="Graphic\Render\Vertex.cpp" />
+    <ClCompile Include="Graphic\Window\KeyboardGLFW.cpp" />
+    <ClCompile Include="Graphic\Window\WindowGL.cpp" />
+    <ClCompile Include="lodepng\lodepng.cpp" />
+    <ClCompile Include="main.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{5C60AE30-E234-4032-9E1D-440E4BB7E94A}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
@@ -39,7 +84,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>E:\works\libs\glew;E:\works\libs\glfw;E:\works\libs\glm;$(IncludePath)</IncludePath>
+    <IncludePath>E:\works\td\td\;E:\works\libs\glew;E:\works\libs\glfw;E:\works\libs\glm;$(IncludePath)</IncludePath>
     <LibraryPath>E:\works\libs\Debug;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -76,50 +121,6 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="Bitmap.cpp" />
-    <ClCompile Include="BoxMesh.cpp" />
-    <ClCompile Include="Camera.cpp" />
-    <ClCompile Include="Color.cpp" />
-    <ClCompile Include="Game.cpp" />
-    <ClCompile Include="BaseMesh.cpp" />
-    <ClCompile Include="Keyboard.cpp" />
-    <ClCompile Include="lodepng\lodepng.cpp" />
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="Model.cpp" />
-    <ClCompile Include="Render.cpp" />
-    <ClCompile Include="RenderErrorChecker.cpp" />
-    <ClCompile Include="Shader.cpp" />
-    <ClCompile Include="SimpleMaterial.cpp" />
-    <ClCompile Include="Texture.cpp" />
-    <ClCompile Include="TextureManager.cpp" />
-    <ClCompile Include="Vertex.cpp" />
-    <ClCompile Include="WindowGL.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="BoxMesh.h" />
-    <ClInclude Include="Camera.h" />
-    <ClInclude Include="ConvertKey.h" />
-    <ClInclude Include="ICamera.h" />
-    <ClInclude Include="IMaterial.h" />
-    <ClInclude Include="BaseMesh.h" />
-    <ClInclude Include="Keyboard.h" />
-    <ClInclude Include="Keys.h" />
-    <ClInclude Include="Model.h" />
-    <ClInclude Include="Shader.h" />
-    <ClInclude Include="Bitmap.h" />
-    <ClInclude Include="Color.h" />
-    <ClInclude Include="Game.h" />
-    <ClInclude Include="lodepng\lodepng.h" />
-    <ClInclude Include="Render.h" />
-    <ClInclude Include="RenderErrorChecker.h" />
-    <ClInclude Include="SimpleMaterial.h" />
-    <ClInclude Include="Texture.h" />
-    <ClInclude Include="TextureManager.h" />
-    <ClInclude Include="Vertex.h" />
-    <ClInclude Include="IWindow.h" />
-    <ClInclude Include="WindowGL.h" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

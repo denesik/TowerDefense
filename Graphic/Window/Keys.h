@@ -3,7 +3,7 @@
 #ifndef Keys_h__
 #define Keys_h__
 
-enum
+enum Keys
 {
   KEY_UNKNOWN,
   KEY_SPACE,

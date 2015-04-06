@@ -3,6 +3,8 @@
 #ifndef Window_h__
 #define Window_h__
 
+#include "IKeyboard.h"
+
 class IWindow
 {
 public:
@@ -17,6 +19,9 @@ public:
 
   /// Переключить буферы.
   virtual void SwapBuffers() = 0;
+
+  /// Получить клавиатуру.
+  virtual const IKeyboard &GetKeyboard() = 0;
 };
 
 #endif // Window_h__
