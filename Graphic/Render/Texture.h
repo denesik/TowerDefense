@@ -1,9 +1,9 @@
 #ifndef TEXTURE_H
 #define TEXTURE_H
 
+#include <memory>
 #include <glm/glm.hpp>
 #include "Bitmap.h"
-#include <memory>
 
 /// Описание текстурных слотов.
 enum TextureSlot

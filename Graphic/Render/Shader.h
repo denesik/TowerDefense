@@ -3,6 +3,30 @@
 #define BaseShader_h__
 
 #include <memory>
+#include <string>
+
+class ShaderException: public std::exception
+{
+public:
+  ShaderException(unsigned int id)
+    : mId(id)
+  {
+  }
+  virtual const char *what() const throw()
+  {
+    return "Shader exception";
+  }
+
+  enum
+  {
+    SHADER_NOT_CREATED,
+    COUNT,
+  };
+
+private:
+  const unsigned int mId;
+};
+
 
 class Shader;
 typedef std::shared_ptr<Shader> PShader;
@@ -11,11 +35,8 @@ typedef std::shared_ptr<Shader> PShader;
 class Shader
 {
 public:
-  Shader();
+  Shader(const std::string &shaderName);
   ~Shader();
-
-  /// Скомпилировать шейдер.
-  void Compile();
 
   /// Установить шейдер.
   void Use();
@@ -38,10 +59,13 @@ private:
 private:
 
   /// Загрузить шейдер.
-  unsigned int CreateShader(char const *shader, ShaderType type);
+  unsigned int CreateShader(const std::string &data, ShaderType type);
 
   /// Удалить шейдер
   void DeleteShader(unsigned int shaderId);
+
+  /// Прочитать файл.
+  std::string ReadTxtFile(const std::string &fileName);
 
 private:
 

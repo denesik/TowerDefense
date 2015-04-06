@@ -56,12 +56,6 @@ void Camera::SetNear(float near)
 void Camera::UpdateProjection()
 {
   mProjection = glm::perspective(mFov, mAspect, mNear, mFar);
-//   mView = glm::lookAt
-//     (
-//       glm::vec3(0,0,1), // eye
-//       glm::vec3(0,0,0), // center
-//       glm::vec3(0,1,0)  // up
-//     );
 }
 
 void Camera::RotateX(float angle)

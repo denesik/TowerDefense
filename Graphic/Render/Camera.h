@@ -3,7 +3,7 @@
 #ifndef Camera_h__
 #define Camera_h__
 
-#include "icamera.h"
+#include "ICamera.h"
 
 
 class Camera : public ICamera

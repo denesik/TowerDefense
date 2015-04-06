@@ -20,6 +20,8 @@ bool Game::Initialize()
 {
   WindowGL::WindowSystemInitialize();
 
+  //Shader s("shaders/t2");
+
   try
   {
     mWindow = new WindowGL;

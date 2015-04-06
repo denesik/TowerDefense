@@ -3,6 +3,7 @@
 #include <GL/glew.h>
 #include <vector>
 #include <assert.h>
+#include <fstream>
 
 unsigned int Shader::ToShaderType(unsigned int shaderType)
 {
@@ -14,14 +15,69 @@ unsigned int Shader::ToShaderType(unsigned int shaderType)
 };
 
 
-Shader::Shader()
+Shader::Shader(const std::string &shaderName)
 {
-  mProgramId = 0;
+  // Читаем и создаем шейдеры.
+  // Если файл не существует, шейдер не создается.
+  std::vector<int> shaders(SHADER_TYPE_COUNT, 0);
+
+  try
+  {
+    shaders[SHADER_VERTEX] = CreateShader(ReadTxtFile(shaderName + ".vs"), SHADER_VERTEX);
+    shaders[SHADER_FRAGMENT] = CreateShader(ReadTxtFile(shaderName + ".fs"), SHADER_FRAGMENT);
+  }
+  catch (ShaderException *)
+  {
+    // Удалим все созданные шейдеры.
+    for(auto it = shaders.begin(); it != shaders.end(); ++it)
+    {
+      DeleteShader(*it);
+    }
+    throw;
+  }
+
+  // Очищаем стек ошибок ogl.
+  while(!glGetError()){};
+
+  // Пытаемся собрать программу из всех прочитанных шейдеров.
+  mProgramId = glCreateProgram();
+  for(auto it = shaders.begin(); it != shaders.end(); ++it)
+  {
+    if(*it)
+    {
+      glAttachShader(mProgramId, *it);
+    }
+  }
+  glLinkProgram(mProgramId);
+
+  // Удаляем шейдеры.
+  for(auto it = shaders.begin(); it != shaders.end(); ++it)
+  {
+    DeleteShader(*it);
+  }
+
+  // Проверяем статус линковки
+  GLint link = GL_FALSE;
+  glGetProgramiv(mProgramId, GL_LINK_STATUS, &link);
+  if(link != GL_TRUE || glGetError())
+  {
+    GLint linkerLogSize = 0;
+    glGetProgramiv(mProgramId, GL_INFO_LOG_LENGTH, &linkerLogSize);
+    if(linkerLogSize)
+    {
+      std::string linkerLog(linkerLogSize, '\0');
+      glGetProgramInfoLog(mProgramId, linkerLogSize, NULL, &linkerLog[0]);
+    }
+
+    glDeleteProgram(mProgramId);
+    throw new ShaderException(ShaderException::SHADER_NOT_CREATED);
+  }
 }
 
 
 Shader::~Shader()
 {
+  glDeleteProgram(mProgramId);
 }
 
 void Shader::Use()
@@ -29,43 +85,68 @@ void Shader::Use()
   glUseProgram(mProgramId);
 }
 
-unsigned int Shader::CreateShader(char const *shader, ShaderType type)
+unsigned int Shader::CreateShader(const std::string &data, ShaderType type)
 {
-  GLuint shaderId = glCreateShader(ShaderType(type));
-
-  GLint isCompiled = GL_FALSE;
-  int InfoLogLength;
-
-  // Compile Vertex Shader
-  //LOG(LOG_INFO, "Compiling shader: \"" + vertex_file_path + "\".");
-  glShaderSource(shaderId, 1, &shader , NULL);
-  glCompileShader(shaderId);
-
-  // Check Vertex Shader
-  glGetShaderiv(shaderId, GL_COMPILE_STATUS, &isCompiled);
-
-  if(!isCompiled)
+  if(data.empty())
   {
-    glGetShaderiv(shaderId, GL_INFO_LOG_LENGTH, &InfoLogLength);
-    std::vector<char> VertexShaderErrorMessage(InfoLogLength);
-    glGetShaderInfoLog(shaderId, InfoLogLength, NULL, &VertexShaderErrorMessage[0]);
-    //LOG(LOG_INFO, &VertexShaderErrorMessage[0]);
+    return 0;
   }
 
-  return shaderId;
+  // Очищаем стек ошибок ogl.
+  while(!glGetError()){};
+
+  GLuint shader = glCreateShader(ShaderType(type));
+
+  if(glGetError())
+  {
+    throw new ShaderException(ShaderException::SHADER_NOT_CREATED);
+  }
+
+  char const *sourcePointer = data.c_str();
+  glShaderSource(shader, 1, &sourcePointer, NULL);
+  glCompileShader(shader);
+
+  GLint compiled = GL_FALSE;
+  glGetShaderiv(shader, GL_COMPILE_STATUS, &compiled);
+
+  if(compiled != GL_TRUE || glGetError())
+  {
+    int infoLogLength = 0;
+    glGetShaderiv(shader, GL_INFO_LOG_LENGTH, &infoLogLength);
+    if(infoLogLength)
+    {
+      std::vector<char> VertexShaderErrorMessage(infoLogLength);
+      glGetShaderInfoLog(shader, infoLogLength, NULL, &VertexShaderErrorMessage[0]);
+    }
+
+    glDeleteShader(shader);
+    throw new ShaderException(ShaderException::SHADER_NOT_CREATED);
+  }
+
+  return shader;
 }
 
-void Shader::DeleteShader(unsigned int shaderId)
+void Shader::DeleteShader(unsigned int shader)
 {
-  glDeleteShader(shaderId);
-}
-
-void Shader::Compile()
-{
-
+  glDeleteShader(shader);
 }
 
 unsigned int Shader::GetUniformLocation(const char *name)
 {
   return glGetUniformLocation(mProgramId, name);
+}
+
+std::string Shader::ReadTxtFile(const std::string &fileName)
+{
+  std::string code;
+  std::ifstream file(fileName, std::ios::in);
+  if(file.is_open())
+  {
+    std::string line = "";
+    while(getline(file, line))
+      code += "\n" + line;
+    file.close();
+  }
+
+  return code;
 }
