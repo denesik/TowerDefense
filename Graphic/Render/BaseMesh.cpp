@@ -50,7 +50,20 @@ void BaseMesh::Use()
 {
   glBindVertexArray(mVao);
 
+  glEnableVertexAttribArrayARB(0);
+  glEnableVertexAttribArrayARB(1);
+  glEnableVertexAttribArrayARB(2);
+
+  GLchar* ptr = 0;
+  glVertexAttribPointerARB(0, 3, GL_FLOAT, GL_FALSE, 32, ptr + sizeof(float) * 0);
+  glVertexAttribPointerARB(1, 2, GL_FLOAT, GL_FALSE, 32, ptr + sizeof(float) * 3);
+  glVertexAttribPointerARB(2, 3, GL_FLOAT, GL_FALSE, 32, ptr + sizeof(float) * 5);
+
   glDrawElements(GL_TRIANGLES, mVideoIndexBuffer, GL_UNSIGNED_INT, NULL);
+
+  glDisableVertexAttribArrayARB(0);
+  glDisableVertexAttribArrayARB(1);
+  glDisableVertexAttribArrayARB(2);
 
   glBindVertexArray(0);
 }
