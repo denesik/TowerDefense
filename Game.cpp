@@ -3,6 +3,7 @@
 #include "Graphic/Window/WindowGL.h"
 #include "Graphic/Render/RenderErrorChecker.h"
 #include <iostream>
+#include <Graphic/Render/BoxMesh.h>
 
 
 Game::Game()
@@ -20,6 +21,8 @@ bool Game::Initialize()
 {
   WindowGL::WindowSystemInitialize();
 
+  BoxMesh b;
+  b.Generate();
   //Shader s("shaders/t2");
 
   try

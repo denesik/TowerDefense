@@ -21,51 +21,51 @@ void BoxMesh::Generate()
   unsigned int offsetVertex = 0;
   if(mSideMask & SIDE_LEFT)
   {
-    memcpy(&mVertexBuffer[offsetVertex], &Vertex(glm::vec3(-(mSize.x / 2.0f), -(mSize.y / 2.0f), -(mSize.z / 2.0f)), glm::vec2(0.0f, 0.0f)), sizeof(Vertex)); // lbb
-    memcpy(&mVertexBuffer[offsetVertex], &Vertex(glm::vec3(-(mSize.x / 2.0f), -(mSize.y / 2.0f),  (mSize.z / 2.0f)), glm::vec2(1.0f, 0.0f)), sizeof(Vertex)); // lbf
-    memcpy(&mVertexBuffer[offsetVertex], &Vertex(glm::vec3(-(mSize.x / 2.0f),  (mSize.y / 2.0f),  (mSize.z / 2.0f)), glm::vec2(1.0f, 1.0f)), sizeof(Vertex)); // ltf
-    memcpy(&mVertexBuffer[offsetVertex], &Vertex(glm::vec3(-(mSize.x / 2.0f),  (mSize.y / 2.0f), -(mSize.z / 2.0f)), glm::vec2(0.0f, 1.0f)), sizeof(Vertex)); // ltb
-    offsetVertex += sizeof(Vertex) * 4;
+    mVertexBuffer[offsetVertex] = Vertex(glm::vec3(-(mSize.x / 2.0f), -(mSize.y / 2.0f), -(mSize.z / 2.0f)), glm::vec2(0.0f, 0.0f)); // lbb
+    mVertexBuffer[offsetVertex] = Vertex(glm::vec3(-(mSize.x / 2.0f), -(mSize.y / 2.0f),  (mSize.z / 2.0f)), glm::vec2(1.0f, 0.0f)); // lbf
+    mVertexBuffer[offsetVertex] = Vertex(glm::vec3(-(mSize.x / 2.0f),  (mSize.y / 2.0f),  (mSize.z / 2.0f)), glm::vec2(1.0f, 1.0f)); // ltf
+    mVertexBuffer[offsetVertex] = Vertex(glm::vec3(-(mSize.x / 2.0f),  (mSize.y / 2.0f), -(mSize.z / 2.0f)), glm::vec2(0.0f, 1.0f)); // ltb
+    offsetVertex += 4;
   }
   if(mSideMask & SIDE_RIGHT)
   {
-    memcpy(&mVertexBuffer[offsetVertex], &Vertex(glm::vec3( (mSize.x / 2.0f), -(mSize.y / 2.0f),  (mSize.z / 2.0f)), glm::vec2(0.0f, 0.0f)), sizeof(Vertex)); // rbf
-    memcpy(&mVertexBuffer[offsetVertex], &Vertex(glm::vec3( (mSize.x / 2.0f), -(mSize.y / 2.0f), -(mSize.z / 2.0f)), glm::vec2(1.0f, 0.0f)), sizeof(Vertex)); // rbb
-    memcpy(&mVertexBuffer[offsetVertex], &Vertex(glm::vec3( (mSize.x / 2.0f),  (mSize.y / 2.0f), -(mSize.z / 2.0f)), glm::vec2(1.0f, 1.0f)), sizeof(Vertex)); // rtb
-    memcpy(&mVertexBuffer[offsetVertex], &Vertex(glm::vec3( (mSize.x / 2.0f),  (mSize.y / 2.0f),  (mSize.z / 2.0f)), glm::vec2(0.0f, 1.0f)), sizeof(Vertex)); // rtf
-    offsetVertex += sizeof(Vertex) * 4;
+    mVertexBuffer[offsetVertex] = Vertex(glm::vec3( (mSize.x / 2.0f), -(mSize.y / 2.0f),  (mSize.z / 2.0f)), glm::vec2(0.0f, 0.0f)); // rbf
+    mVertexBuffer[offsetVertex] = Vertex(glm::vec3( (mSize.x / 2.0f), -(mSize.y / 2.0f), -(mSize.z / 2.0f)), glm::vec2(1.0f, 0.0f)); // rbb
+    mVertexBuffer[offsetVertex] = Vertex(glm::vec3( (mSize.x / 2.0f),  (mSize.y / 2.0f), -(mSize.z / 2.0f)), glm::vec2(1.0f, 1.0f)); // rtb
+    mVertexBuffer[offsetVertex] = Vertex(glm::vec3( (mSize.x / 2.0f),  (mSize.y / 2.0f),  (mSize.z / 2.0f)), glm::vec2(0.0f, 1.0f)); // rtf
+    offsetVertex += 4;
   }
   if(mSideMask & SIDE_TOP)
   {
-    memcpy(&mVertexBuffer[offsetVertex], &Vertex(glm::vec3(-(mSize.x / 2.0f),  (mSize.y / 2.0f),  (mSize.z / 2.0f)), glm::vec2(0.0f, 0.0f)), sizeof(Vertex)); // ltf
-    memcpy(&mVertexBuffer[offsetVertex], &Vertex(glm::vec3( (mSize.x / 2.0f),  (mSize.y / 2.0f),  (mSize.z / 2.0f)), glm::vec2(1.0f, 0.0f)), sizeof(Vertex)); // rtf
-    memcpy(&mVertexBuffer[offsetVertex], &Vertex(glm::vec3( (mSize.x / 2.0f),  (mSize.y / 2.0f), -(mSize.z / 2.0f)), glm::vec2(1.0f, 1.0f)), sizeof(Vertex)); // rtb
-    memcpy(&mVertexBuffer[offsetVertex], &Vertex(glm::vec3(-(mSize.x / 2.0f),  (mSize.y / 2.0f), -(mSize.z / 2.0f)), glm::vec2(0.0f, 1.0f)), sizeof(Vertex)); // ltb
-    offsetVertex += sizeof(Vertex) * 4;
+    mVertexBuffer[offsetVertex] = Vertex(glm::vec3(-(mSize.x / 2.0f),  (mSize.y / 2.0f),  (mSize.z / 2.0f)), glm::vec2(0.0f, 0.0f)); // ltf
+    mVertexBuffer[offsetVertex] = Vertex(glm::vec3( (mSize.x / 2.0f),  (mSize.y / 2.0f),  (mSize.z / 2.0f)), glm::vec2(1.0f, 0.0f)); // rtf
+    mVertexBuffer[offsetVertex] = Vertex(glm::vec3( (mSize.x / 2.0f),  (mSize.y / 2.0f), -(mSize.z / 2.0f)), glm::vec2(1.0f, 1.0f)); // rtb
+    mVertexBuffer[offsetVertex] = Vertex(glm::vec3(-(mSize.x / 2.0f),  (mSize.y / 2.0f), -(mSize.z / 2.0f)), glm::vec2(0.0f, 1.0f)); // ltb
+    offsetVertex += 4;
   }
   if(mSideMask & SIDE_BOTTOM)
   {
-    memcpy(&mVertexBuffer[offsetVertex], &Vertex(glm::vec3(-(mSize.x / 2.0f), -(mSize.y / 2.0f), -(mSize.z / 2.0f)), glm::vec2(0.0f, 0.0f)), sizeof(Vertex)); // lbb
-    memcpy(&mVertexBuffer[offsetVertex], &Vertex(glm::vec3( (mSize.x / 2.0f), -(mSize.y / 2.0f), -(mSize.z / 2.0f)), glm::vec2(1.0f, 0.0f)), sizeof(Vertex)); // rbb
-    memcpy(&mVertexBuffer[offsetVertex], &Vertex(glm::vec3( (mSize.x / 2.0f), -(mSize.y / 2.0f),  (mSize.z / 2.0f)), glm::vec2(1.0f, 1.0f)), sizeof(Vertex)); // rbf
-    memcpy(&mVertexBuffer[offsetVertex], &Vertex(glm::vec3(-(mSize.x / 2.0f), -(mSize.y / 2.0f),  (mSize.z / 2.0f)), glm::vec2(0.0f, 1.0f)), sizeof(Vertex)); // lbf
-    offsetVertex += sizeof(Vertex) * 4;
+    mVertexBuffer[offsetVertex] = Vertex(glm::vec3(-(mSize.x / 2.0f), -(mSize.y / 2.0f), -(mSize.z / 2.0f)), glm::vec2(0.0f, 0.0f)); // lbb
+    mVertexBuffer[offsetVertex] = Vertex(glm::vec3( (mSize.x / 2.0f), -(mSize.y / 2.0f), -(mSize.z / 2.0f)), glm::vec2(1.0f, 0.0f)); // rbb
+    mVertexBuffer[offsetVertex] = Vertex(glm::vec3( (mSize.x / 2.0f), -(mSize.y / 2.0f),  (mSize.z / 2.0f)), glm::vec2(1.0f, 1.0f)); // rbf
+    mVertexBuffer[offsetVertex] = Vertex(glm::vec3(-(mSize.x / 2.0f), -(mSize.y / 2.0f),  (mSize.z / 2.0f)), glm::vec2(0.0f, 1.0f)); // lbf
+    offsetVertex += 4;
   }
   if(mSideMask & SIDE_FRONT)
   {
-    memcpy(&mVertexBuffer[offsetVertex], &Vertex(glm::vec3(-(mSize.x / 2.0f), -(mSize.y / 2.0f),  (mSize.z / 2.0f)), glm::vec2(0.0f, 0.0f)), sizeof(Vertex)); // lbf
-    memcpy(&mVertexBuffer[offsetVertex], &Vertex(glm::vec3( (mSize.x / 2.0f), -(mSize.y / 2.0f),  (mSize.z / 2.0f)), glm::vec2(1.0f, 0.0f)), sizeof(Vertex)); // rbf
-    memcpy(&mVertexBuffer[offsetVertex], &Vertex(glm::vec3( (mSize.x / 2.0f),  (mSize.y / 2.0f),  (mSize.z / 2.0f)), glm::vec2(1.0f, 1.0f)), sizeof(Vertex)); // rtf
-    memcpy(&mVertexBuffer[offsetVertex], &Vertex(glm::vec3(-(mSize.x / 2.0f),  (mSize.y / 2.0f),  (mSize.z / 2.0f)), glm::vec2(0.0f, 1.0f)), sizeof(Vertex)); // ltf
-    offsetVertex += sizeof(Vertex) * 4;
+    mVertexBuffer[offsetVertex] = Vertex(glm::vec3(-(mSize.x / 2.0f), -(mSize.y / 2.0f),  (mSize.z / 2.0f)), glm::vec2(0.0f, 0.0f)); // lbf
+    mVertexBuffer[offsetVertex] = Vertex(glm::vec3( (mSize.x / 2.0f), -(mSize.y / 2.0f),  (mSize.z / 2.0f)), glm::vec2(1.0f, 0.0f)); // rbf
+    mVertexBuffer[offsetVertex] = Vertex(glm::vec3( (mSize.x / 2.0f),  (mSize.y / 2.0f),  (mSize.z / 2.0f)), glm::vec2(1.0f, 1.0f)); // rtf
+    mVertexBuffer[offsetVertex] = Vertex(glm::vec3(-(mSize.x / 2.0f),  (mSize.y / 2.0f),  (mSize.z / 2.0f)), glm::vec2(0.0f, 1.0f)); // ltf
+    offsetVertex += 4;
   }
   if(mSideMask & SIDE_BACK)
   {
-    memcpy(&mVertexBuffer[offsetVertex], &Vertex(glm::vec3( (mSize.x / 2.0f), -(mSize.y / 2.0f), -(mSize.z / 2.0f)), glm::vec2(0.0f, 0.0f)), sizeof(Vertex)); // rbb
-    memcpy(&mVertexBuffer[offsetVertex], &Vertex(glm::vec3(-(mSize.x / 2.0f), -(mSize.y / 2.0f), -(mSize.z / 2.0f)), glm::vec2(1.0f, 0.0f)), sizeof(Vertex)); // lbb
-    memcpy(&mVertexBuffer[offsetVertex], &Vertex(glm::vec3(-(mSize.x / 2.0f),  (mSize.y / 2.0f), -(mSize.z / 2.0f)), glm::vec2(1.0f, 1.0f)), sizeof(Vertex)); // ltb
-    memcpy(&mVertexBuffer[offsetVertex], &Vertex(glm::vec3( (mSize.x / 2.0f),  (mSize.y / 2.0f), -(mSize.z / 2.0f)), glm::vec2(0.0f, 1.0f)), sizeof(Vertex)); // rtb
-    offsetVertex += sizeof(Vertex) * 4;
+    mVertexBuffer[offsetVertex] = Vertex(glm::vec3( (mSize.x / 2.0f), -(mSize.y / 2.0f), -(mSize.z / 2.0f)), glm::vec2(0.0f, 0.0f)); // rbb
+    mVertexBuffer[offsetVertex] = Vertex(glm::vec3(-(mSize.x / 2.0f), -(mSize.y / 2.0f), -(mSize.z / 2.0f)), glm::vec2(1.0f, 0.0f)); // lbb
+    mVertexBuffer[offsetVertex] = Vertex(glm::vec3(-(mSize.x / 2.0f),  (mSize.y / 2.0f), -(mSize.z / 2.0f)), glm::vec2(1.0f, 1.0f)); // ltb
+    mVertexBuffer[offsetVertex] = Vertex(glm::vec3( (mSize.x / 2.0f),  (mSize.y / 2.0f), -(mSize.z / 2.0f)), glm::vec2(0.0f, 1.0f)); // rtb
+    offsetVertex += 4;
   }
 
   offsetVertex = 0;
@@ -81,7 +81,7 @@ void BoxMesh::Generate()
       mIndexBuffer[offsetIndex + 3] = offsetVertex + 0; // lb
       mIndexBuffer[offsetIndex + 4] = offsetVertex + 1; // rb
       mIndexBuffer[offsetIndex + 5] = offsetVertex + 2; // rt
-      offsetVertex += sizeof(Vertex) * 4;
+      offsetVertex += 4;
       offsetIndex += 6;
     }
   }
@@ -89,6 +89,6 @@ void BoxMesh::Generate()
 
 unsigned int BoxMesh::GetCountSides()
 {
-  return mSideMask & SIDE_LEFT + mSideMask & SIDE_RIGHT + mSideMask & SIDE_TOP + 
-         mSideMask & SIDE_BOTTOM + mSideMask & SIDE_FRONT + mSideMask & SIDE_BACK;
+  return ((mSideMask & SIDE_LEFT) >> 0) + ((mSideMask & SIDE_RIGHT) >> 1) + ((mSideMask & SIDE_TOP) >> 2) + 
+         ((mSideMask & SIDE_BOTTOM) >> 3) + ((mSideMask & SIDE_FRONT) >> 4) + ((mSideMask & SIDE_BACK) >> 5);
 }

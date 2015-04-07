@@ -6,7 +6,7 @@
 BaseMesh::BaseMesh()
 {
   mVao = 0;
-  glGenVertexArrays(1, &mVao);
+//  glGenVertexArrays(1, &mVao);
   mVideoVertexBuffer = 0;
   mVideoIndexBuffer = 0;
 }
