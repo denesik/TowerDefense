@@ -11,13 +11,13 @@ public:
   IKeyboard(){};
   ~IKeyboard(){};
 
-  /// Была ли нажата клавиша.
+  /// Р‘С‹Р»Р° Р»Рё РЅР°Р¶Р°С‚Р° РєР»Р°РІРёС€Р°.
   virtual bool IsKeyPress(Keys key) = 0;
 
-  /// Клавиша отпущена?
+  /// РљР»Р°РІРёС€Р° РѕС‚РїСѓС‰РµРЅР°?
   virtual bool IsKeyUp(Keys key) = 0;
 
-  /// Клавиша нажата?
+  /// РљР»Р°РІРёС€Р° РЅР°Р¶Р°С‚Р°?
   virtual bool IsKeyDown(Keys key) = 0;
 };
 

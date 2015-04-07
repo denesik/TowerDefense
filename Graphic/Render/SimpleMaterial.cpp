@@ -15,7 +15,7 @@ SimpleMaterial::~SimpleMaterial(void)
 
 void SimpleMaterial::Use(const PShader &shader)
 {
-  // Óñòàíàâëèâàåì òåêñòóðó â øåéäåð.
+  // Ð£ÑÑ‚Ð°Ð½Ð°Ð²Ð»Ð¸Ð²Ð°ÐµÐ¼ Ñ‚ÐµÐºÑÑ‚ÑƒÑ€Ñƒ Ð² ÑˆÐµÐ¹Ð´ÐµÑ€.
   mTexture->Set(TEXTURE_SLOT_0);
   glUniform1i(shader->GetUniformLocation(make_str(mTexture)), TEXTURE_SLOT_0);
 }

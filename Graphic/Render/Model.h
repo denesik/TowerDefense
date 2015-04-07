@@ -11,30 +11,30 @@
 class Model;
 typedef std::shared_ptr<Model> PModel;
 
-/// Описание графической модели.
-/// Содержит меш, материал, шейдер.
+/// РћРїРёСЃР°РЅРёРµ РіСЂР°С„РёС‡РµСЃРєРѕР№ РјРѕРґРµР»Рё.
+/// РЎРѕРґРµСЂР¶РёС‚ РјРµС€, РјР°С‚РµСЂРёР°Р», С€РµР№РґРµСЂ.
 class Model
 {
 public:
   Model();
   virtual ~Model();
 
-  /// Вернуть меш.
+  /// Р’РµСЂРЅСѓС‚СЊ РјРµС€.
   const PMesh &GetMesh();
 
-  /// Установить меш.
+  /// РЈСЃС‚Р°РЅРѕРІРёС‚СЊ РјРµС€.
   void SetMesh(const PMesh &mesh);
 
-  /// Вернуть материал.
+  /// Р’РµСЂРЅСѓС‚СЊ РјР°С‚РµСЂРёР°Р».
   const PMaterial &GetMaterial();
 
-  /// Установить материал.
+  /// РЈСЃС‚Р°РЅРѕРІРёС‚СЊ РјР°С‚РµСЂРёР°Р».
   void SetMaterial(const PMaterial &material);
 
-  /// Вернуть шейдер.
+  /// Р’РµСЂРЅСѓС‚СЊ С€РµР№РґРµСЂ.
   const PShader &GetShader();
 
-  /// Установить шейдер.
+  /// РЈСЃС‚Р°РЅРѕРІРёС‚СЊ С€РµР№РґРµСЂ.
   void SetShader(const PShader &shader);
 
 private:

@@ -17,8 +17,8 @@ unsigned int Shader::ToShaderType(unsigned int shaderType)
 
 Shader::Shader(const std::string &shaderName)
 {
-  // Читаем и создаем шейдеры.
-  // Если файл не существует, шейдер не создается.
+  // Р§РёС‚Р°РµРј Рё СЃРѕР·РґР°РµРј С€РµР№РґРµСЂС‹.
+  // Р•СЃР»Рё С„Р°Р№Р» РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚, С€РµР№РґРµСЂ РЅРµ СЃРѕР·РґР°РµС‚СЃСЏ.
   std::vector<int> shaders(SHADER_TYPE_COUNT, 0);
 
   try
@@ -28,7 +28,7 @@ Shader::Shader(const std::string &shaderName)
   }
   catch (ShaderException *)
   {
-    // Удалим все созданные шейдеры.
+    // РЈРґР°Р»РёРј РІСЃРµ СЃРѕР·РґР°РЅРЅС‹Рµ С€РµР№РґРµСЂС‹.
     for(auto it = shaders.begin(); it != shaders.end(); ++it)
     {
       DeleteShader(*it);
@@ -36,10 +36,10 @@ Shader::Shader(const std::string &shaderName)
     throw;
   }
 
-  // Очищаем стек ошибок ogl.
+  // РћС‡РёС‰Р°РµРј СЃС‚РµРє РѕС€РёР±РѕРє ogl.
   while(!glGetError()){};
 
-  // Пытаемся собрать программу из всех прочитанных шейдеров.
+  // РџС‹С‚Р°РµРјСЃСЏ СЃРѕР±СЂР°С‚СЊ РїСЂРѕРіСЂР°РјРјСѓ РёР· РІСЃРµС… РїСЂРѕС‡РёС‚Р°РЅРЅС‹С… С€РµР№РґРµСЂРѕРІ.
   mProgramId = glCreateProgram();
   for(auto it = shaders.begin(); it != shaders.end(); ++it)
   {
@@ -50,13 +50,13 @@ Shader::Shader(const std::string &shaderName)
   }
   glLinkProgram(mProgramId);
 
-  // Удаляем шейдеры.
+  // РЈРґР°Р»СЏРµРј С€РµР№РґРµСЂС‹.
   for(auto it = shaders.begin(); it != shaders.end(); ++it)
   {
     DeleteShader(*it);
   }
 
-  // Проверяем статус линковки
+  // РџСЂРѕРІРµСЂСЏРµРј СЃС‚Р°С‚СѓСЃ Р»РёРЅРєРѕРІРєРё
   GLint link = GL_FALSE;
   glGetProgramiv(mProgramId, GL_LINK_STATUS, &link);
   if(link != GL_TRUE || glGetError())
@@ -92,7 +92,7 @@ unsigned int Shader::CreateShader(const std::string &data, ShaderType type)
     return 0;
   }
 
-  // Очищаем стек ошибок ogl.
+  // РћС‡РёС‰Р°РµРј СЃС‚РµРє РѕС€РёР±РѕРє ogl.
   while(!glGetError()){};
 
   GLuint shader = glCreateShader(ShaderType(type));

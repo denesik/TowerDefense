@@ -21,7 +21,7 @@ WindowGL::WindowGL()
     throw new WindowException(WindowException::NOT_CREATED);
   }
 
-  /// Привязываем к glfw окну указатель на объект WindowGL.
+  /// РџСЂРёРІСЏР·С‹РІР°РµРј Рє glfw РѕРєРЅСѓ СѓРєР°Р·Р°С‚РµР»СЊ РЅР° РѕР±СЉРµРєС‚ WindowGL.
   glfwSetWindowUserPointer((mWindow.get()), this);
 
   //glfwSwapInterval(0);

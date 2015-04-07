@@ -14,16 +14,16 @@ public:
   CameraPersp();
   ~CameraPersp();
 
-  /// Получить матрицу вида.
+  /// РџРѕР»СѓС‡РёС‚СЊ РјР°С‚СЂРёС†Сѓ РІРёРґР°.
   const glm::mat4 &GetView() override;
 
-  /// Получить матрицу проекции.
+  /// РџРѕР»СѓС‡РёС‚СЊ РјР°С‚СЂРёС†Сѓ РїСЂРѕРµРєС†РёРё.
   const glm::mat4 &GetProject() override;
 
-  /// Угол обзора.
+  /// РЈРіРѕР» РѕР±Р·РѕСЂР°.
   void SetFov(float fov);
 
-  /// Пропорции экрана.
+  /// РџСЂРѕРїРѕСЂС†РёРё СЌРєСЂР°РЅР°.
   void SetAspect(float aspect);
 
   void SetFar(float far);

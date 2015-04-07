@@ -9,15 +9,15 @@
 class BoxMesh;
 typedef std::shared_ptr<BoxMesh> PBoxMesh;
 
-/// Меш.
-/// Создает параллепипед указанного размера из указанных сторон.
+/// РњРµС€.
+/// РЎРѕР·РґР°РµС‚ РїР°СЂР°Р»Р»РµРїРёРїРµРґ СѓРєР°Р·Р°РЅРЅРѕРіРѕ СЂР°Р·РјРµСЂР° РёР· СѓРєР°Р·Р°РЅРЅС‹С… СЃС‚РѕСЂРѕРЅ.
 class BoxMesh : public BaseMesh
 {
 public:
   BoxMesh(unsigned char sideMask = SIDE_ALL, const glm::vec3 &size = glm::vec3(1.0f, 1.0f, 1.0f));
   ~BoxMesh();
 
-  /// Сгенерировать меш по заданным параметрам.
+  /// РЎРіРµРЅРµСЂРёСЂРѕРІР°С‚СЊ РјРµС€ РїРѕ Р·Р°РґР°РЅРЅС‹Рј РїР°СЂР°РјРµС‚СЂР°Рј.
   void Generate();
 
 public:

@@ -10,8 +10,8 @@
 class SimpleMaterial;
 typedef std::shared_ptr<SimpleMaterial> PSimpleMaterial;
 
-/// Простой материал.
-/// Содержит текстуру.
+/// РџСЂРѕСЃС‚РѕР№ РјР°С‚РµСЂРёР°Р».
+/// РЎРѕРґРµСЂР¶РёС‚ С‚РµРєСЃС‚СѓСЂСѓ.
 class SimpleMaterial : public IMaterial
 {
 public:

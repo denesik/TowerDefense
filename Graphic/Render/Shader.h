@@ -31,17 +31,17 @@ private:
 class Shader;
 typedef std::shared_ptr<Shader> PShader;
 
-/// Шейдер.
+/// РЁРµР№РґРµСЂ.
 class Shader
 {
 public:
   Shader(const std::string &shaderName);
   ~Shader();
 
-  /// Установить шейдер.
+  /// РЈСЃС‚Р°РЅРѕРІРёС‚СЊ С€РµР№РґРµСЂ.
   void Use();
 
-  /// Вернуть идентификатор параметра шейдера.
+  /// Р’РµСЂРЅСѓС‚СЊ РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РїР°СЂР°РјРµС‚СЂР° С€РµР№РґРµСЂР°.
   unsigned int GetUniformLocation(const char *name);
 
 private:
@@ -58,18 +58,18 @@ private:
 
 private:
 
-  /// Загрузить шейдер.
+  /// Р—Р°РіСЂСѓР·РёС‚СЊ С€РµР№РґРµСЂ.
   unsigned int CreateShader(const std::string &data, ShaderType type);
 
-  /// Удалить шейдер
+  /// РЈРґР°Р»РёС‚СЊ С€РµР№РґРµСЂ
   void DeleteShader(unsigned int shaderId);
 
-  /// Прочитать файл.
+  /// РџСЂРѕС‡РёС‚Р°С‚СЊ С„Р°Р№Р».
   std::string ReadTxtFile(const std::string &fileName);
 
 private:
 
-  // Конвертирует внешнее описание типов шейдеров во внетреннее описание типов шейдеров.
+  // РљРѕРЅРІРµСЂС‚РёСЂСѓРµС‚ РІРЅРµС€РЅРµРµ РѕРїРёСЃР°РЅРёРµ С‚РёРїРѕРІ С€РµР№РґРµСЂРѕРІ РІРѕ РІРЅРµС‚СЂРµРЅРЅРµРµ РѕРїРёСЃР°РЅРёРµ С‚РёРїРѕРІ С€РµР№РґРµСЂРѕРІ.
   static unsigned int ToShaderType(unsigned int shaderType);
 
 };
