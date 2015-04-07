@@ -4,6 +4,10 @@
 #include "Graphic/Render/RenderErrorChecker.h"
 #include <iostream>
 #include <Graphic/Render/BoxMesh.h>
+#include <Graphic/Render/Texture.h>
+#include "Graphic/Render/SimpleMaterial.h"
+#include "Graphic/Render/BaseMesh.h"
+#include <Graphic/Render/Camera.h>
 
 
 Game::Game()
@@ -59,10 +63,29 @@ int Game::Run()
     return 0;
   }
 
+  Camera *tmpCamera = new Camera();
+  PCamera camera(tmpCamera);
+
+  PTexture texture(new Texture(Bitmap("textures/img.png")));
+
+  SimpleMaterial *tMaterial = new SimpleMaterial();
+  tMaterial->SetTexture(texture);
+  PMaterial material(tMaterial);
+
+  BoxMesh *tMesh = new BoxMesh();
+  tMesh->Generate();
+  PMesh mesh(tMesh);
+  mesh->Create();
+  
+  PShader shader(new Shader("shaders/t2"));
+
+  PModel model(new Model());
+  model->SetMaterial(material);
+
+
   while(!mWindow->WindowShouldClose())
   {
-
-//    mRender->Draw();
+    mRender->DrawModel(camera, model, glm::vec3(1.0f), glm::vec3(1.0f));
 
     mWindow->SwapBuffers();
     WindowGL::WindowSystemPollEvents();

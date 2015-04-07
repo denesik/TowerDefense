@@ -35,7 +35,7 @@ public:
   const PShader &GetShader();
 
   /// Установить шейдер.
-  void GetShader(const PShader &shader);
+  void SetShader(const PShader &shader);
 
 private:
 

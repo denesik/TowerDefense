@@ -18,7 +18,7 @@ public:
   virtual ~IMaterial(){};
 
   /// Установить текущий материал.
-  virtual void Use(PShader &shader) = 0;
+  virtual void Use(const PShader &shader) = 0;
 
 };
 

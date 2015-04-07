@@ -14,7 +14,7 @@ Camera::Camera(void)
   mFov = 45.0f;
   mAspect = 1.0f;
   mNear = 0.0f;
-  mFar = 1.0f;
+  mFar = -100.0f;
 }
 
 

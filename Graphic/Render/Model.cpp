@@ -17,7 +17,7 @@ const PMesh &Model::GetMesh()
 
 void Model::SetMesh(const PMesh &mesh)
 {
-
+  mMesh = mesh;
 }
 
 const PMaterial &Model::GetMaterial()
@@ -27,7 +27,7 @@ const PMaterial &Model::GetMaterial()
 
 void Model::SetMaterial(const PMaterial &material)
 {
-
+  mMaterial = material;
 }
 
 const PShader &Model::GetShader()
@@ -35,8 +35,8 @@ const PShader &Model::GetShader()
   return mShader;
 }
 
-void Model::GetShader(const PShader &shader)
+void Model::SetShader(const PShader &shader)
 {
-
+  mShader = shader;
 }
 

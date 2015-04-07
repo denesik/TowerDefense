@@ -40,7 +40,7 @@ public:
   static void Initialize();
 
   /// Нарисовать модель в заданной позиции с заданным поворотом.
-  void DrawModel(const PModel &model, const glm::vec3 &position, const glm::vec3 &rotation);
+  void DrawModel(const PCamera &camera, const PModel &model, const glm::vec3 &position, const glm::vec3 &rotation);
 
   /// Нарисовать все заданной камерой.
   void Draw(const PCamera &camera);

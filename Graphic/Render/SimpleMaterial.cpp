@@ -13,7 +13,7 @@ SimpleMaterial::~SimpleMaterial(void)
 {
 }
 
-void SimpleMaterial::Use(PShader &shader)
+void SimpleMaterial::Use(const PShader &shader)
 {
   // Устанавливаем текстуру в шейдер.
   mTexture->Set(TEXTURE_SLOT_0);

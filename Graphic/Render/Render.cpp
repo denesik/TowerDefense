@@ -83,9 +83,22 @@ void Render::Draw(const PCamera &camera)
   glGetError();
 }
 
-void Render::DrawModel(const PModel &model, const glm::vec3 &position, const glm::vec3 &rotation)
+void Render::DrawModel(const PCamera &camera, const PModel &model, const glm::vec3 &position, const glm::vec3 &rotation)
 {
   // Вычисляем матрицу модели, добавляем модель в список на рисование.
+
+  glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+  glClearColor(0.0f, 0.0f, 0.6f, 0.0f);
+  glLoadIdentity();
+
+  GLuint MatrixID = model->GetShader()->GetUniformLocation("MVP");
+
+  glm::mat4 MVP = camera->GetProject() * camera->GetView();
+
+  model->GetShader()->Use();
+  model->GetMaterial()->Use(model->GetShader());
+  glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &MVP[0][0]);
+  model->GetMesh()->Use();
 }
 
 
