@@ -93,7 +93,13 @@ void Render::DrawModel(const PCamera &camera, const PModel &model, const glm::ve
 
   GLuint MatrixID = model->GetShader()->GetUniformLocation("MVP");
 
-  glm::mat4 MVP = camera->GetProject() * camera->GetView();
+  glm::mat4 modelMatrix(1.0f);
+  modelMatrix = glm::translate(modelMatrix, position);
+//   modelMatrix = glm::rotate(modelMatrix, glm::radians(rotation.x), glm::vec3(1.0f, 0.0f, 0.0f));
+//   modelMatrix = glm::rotate(modelMatrix, glm::radians(rotation.y), glm::vec3(0.0f, 1.0f, 0.0f));
+//   modelMatrix = glm::rotate(modelMatrix, glm::radians(rotation.z), glm::vec3(0.0f, 0.0f, 1.0f));
+
+  glm::mat4 MVP = camera->GetProject() * camera->GetView() * modelMatrix;
 
   model->GetShader()->Use();
   model->GetMaterial()->Use(model->GetShader());

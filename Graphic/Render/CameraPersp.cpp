@@ -6,9 +6,9 @@
 CameraPersp::CameraPersp(void)
   : mViewCurr(glm::lookAt
               (
-                glm::vec3(0,0,1), // eye
-                glm::vec3(0,0,0), // center
-                glm::vec3(0,1,0)  // up
+                glm::vec3(0.0f, 0.0f, -1.0f), // eye
+                glm::vec3(0.0f, 0.0f,  0.0f), // center
+                glm::vec3(0.0f, 1.0f,  0.0f)  // up
               )), mViewRotateY(1.0f)
 {
   mFov = 45.0f;

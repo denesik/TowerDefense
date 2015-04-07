@@ -64,32 +64,34 @@ int Game::Run()
     return 0;
   }
 
-  PCameraPersp camera(new CameraPersp());
-
-  TextureManager tm;
-  tm.LoadTexture("textures/img.png");
-
-  PTexture texture = tm.GetTexture("textures/img.png");
-
-  PSimpleMaterial material(new SimpleMaterial());
-  material->SetTexture(texture);
-
-  PBoxMesh mesh(new BoxMesh());
-  mesh->Generate();
-  mesh->Create();
-  
-  PShader shader(new Shader("shaders/t2"));
-
-  PModel model(new Model());
-  model->SetMaterial(material);
-
-
-  while(!mWindow->WindowShouldClose())
   {
-    mRender->DrawModel(camera, model, glm::vec3(1.0f), glm::vec3(1.0f));
+    PCameraPersp camera(new CameraPersp());
 
-    mWindow->SwapBuffers();
-    WindowGL::WindowSystemPollEvents();
+    TextureManager tm;
+    tm.LoadTexture("textures/img.png");
+
+    PTexture texture = tm.GetTexture("textures/img.png");
+
+    PSimpleMaterial material(new SimpleMaterial());
+    material->SetTexture(texture);
+
+    PBoxMesh mesh(new BoxMesh());
+    mesh->Generate();
+    mesh->Create();
+
+    PShader shader(new Shader("shaders/t2"));
+
+    PModel model(new Model());
+    model->SetMaterial(material);
+
+
+    while(!mWindow->WindowShouldClose())
+    {
+      mRender->DrawModel(camera, model, glm::vec3(1.0f), glm::vec3(1.0f));
+
+      mWindow->SwapBuffers();
+      WindowGL::WindowSystemPollEvents();
+    }
   }
 
   delete mRender;
