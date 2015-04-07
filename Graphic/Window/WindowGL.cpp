@@ -7,8 +7,9 @@ WindowGL::WindowGL()
   : mKeyboard(new KeyboardGLFW())
 {
   printf("Start window creating\n");
-  glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 1);
-  glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 2);
+
+  glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+  glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 0);
   //glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
   //glfwWindowHint(GLFW_SAMPLES, 4);
 
@@ -81,6 +82,12 @@ void WindowGL::SetCurrentContext()
 {
   assert(mWindow);
   glfwMakeContextCurrent(mWindow.get());
+
+  // get version info
+  const GLubyte* renderer = glGetString (GL_RENDERER); // get renderer string
+  const GLubyte* version = glGetString (GL_VERSION); // version as a string
+  printf("Renderer: %s\n", renderer);
+  printf("OpenGL version supported %s\n", version);
 }
 
 bool WindowGL::WindowShouldClose()

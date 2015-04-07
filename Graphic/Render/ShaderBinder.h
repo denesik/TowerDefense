@@ -20,9 +20,9 @@ public:
 
 private:
 
-  PShader mShader;
-  PMaterial mMaterial;
   //PMesh mMesh;
+  PMaterial mMaterial;
+  PShader mShader;
 
   std::vector<int> mUniforms;
 

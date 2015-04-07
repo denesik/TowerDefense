@@ -66,7 +66,7 @@ void Render::Initialize()
   glGetError();
 }
 
-void Render::Draw(const PCamera &camera)
+void Render::Draw(const PCamera &)
 {
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
   glClearColor(0.0f, 0.0f, 0.6f, 0.0f);
@@ -83,7 +83,7 @@ void Render::Draw(const PCamera &camera)
   glGetError();
 }
 
-void Render::DrawModel(const PCamera &camera, const PModel &model, const glm::vec3 &position, const glm::vec3 &rotation)
+void Render::DrawModel(const PCamera &camera, const PModel &model, const glm::vec3 &position, const glm::vec3 &)
 {
   // Вычисляем матрицу модели, добавляем модель в список на рисование.
 

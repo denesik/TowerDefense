@@ -12,7 +12,7 @@ unsigned int Shader::ToShaderType(unsigned int shaderType)
   types[SHADER_VERTEX] = GL_VERTEX_SHADER;
   types[SHADER_FRAGMENT] = GL_FRAGMENT_SHADER;
   return types[shaderType];
-};
+}
 
 
 Shader::Shader(const std::string &shaderName)

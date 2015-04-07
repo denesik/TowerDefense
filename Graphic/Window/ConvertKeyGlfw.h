@@ -3,9 +3,9 @@
 #ifndef ConvertKey_h__
 #define ConvertKey_h__
 
-#include <GLFW\glfw3.h>
 #include "Keys.h"
 #include <assert.h>
+#include <GLFW/glfw3.h>
 
 static const int glfwKeys[KEYS_COUNT] = 
 {
@@ -134,7 +134,7 @@ static const int glfwKeys[KEYS_COUNT] =
   GLFW_KEY_MENU,
 };
 
-static const int KeyToGlfw(Keys key)
+static int KeyToGlfw(Keys key)
 {
   assert(key < KEYS_COUNT);
   return glfwKeys[key];

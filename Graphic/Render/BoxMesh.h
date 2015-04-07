@@ -36,8 +36,8 @@ public:
 
 private:
 
-  glm::vec3 mSize;
   unsigned char mSideMask;
+  glm::vec3 mSize;
 
 private:
 

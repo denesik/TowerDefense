@@ -1,7 +1,7 @@
 #include "KeyboardGLFW.h"
 
-#include <GLFW\glfw3.h>
 #include "ConvertKeyGlfw.h"
+#include <GLFW/glfw3.h>
 #include <assert.h>
 
 KeyboardGLFW::KeyboardGLFW()
@@ -16,11 +16,11 @@ KeyboardGLFW::~KeyboardGLFW()
 }
 
 
-void KeyboardGLFW::SetKey(int key, int scancode, int action, int mods)
+void KeyboardGLFW::SetKey(int key, int , int action, int )
 {
   if(key == GLFW_KEY_UNKNOWN)
   {
-    printf("glfw unknown key\n");
+    //printf("glfw unknown key\n");
     return;
   }
   mKeyState[key] = action;

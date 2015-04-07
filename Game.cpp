@@ -83,6 +83,8 @@ int Game::Run()
 
     PModel model(new Model());
     model->SetMaterial(material);
+    model->SetMesh(mesh);
+    model->SetShader(shader);
 
 
     while(!mWindow->WindowShouldClose())
