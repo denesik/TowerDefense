@@ -7,7 +7,8 @@
 #include <Graphic/Render/Texture.h>
 #include "Graphic/Render/SimpleMaterial.h"
 #include "Graphic/Render/BaseMesh.h"
-#include <Graphic/Render/Camera.h>
+#include <Graphic/Render/CameraPersp.h>
+#include "Graphic/Render/TextureManager.h"
 
 
 Game::Game()
@@ -63,18 +64,18 @@ int Game::Run()
     return 0;
   }
 
-  Camera *tmpCamera = new Camera();
-  PCamera camera(tmpCamera);
+  PCameraPersp camera(new CameraPersp());
 
-  PTexture texture(new Texture(Bitmap("textures/img.png")));
+  TextureManager tm;
+  tm.LoadTexture("textures/img.png");
 
-  SimpleMaterial *tMaterial = new SimpleMaterial();
-  tMaterial->SetTexture(texture);
-  PMaterial material(tMaterial);
+  PTexture texture = tm.GetTexture("textures/img.png");
 
-  BoxMesh *tMesh = new BoxMesh();
-  tMesh->Generate();
-  PMesh mesh(tMesh);
+  PSimpleMaterial material(new SimpleMaterial());
+  material->SetTexture(texture);
+
+  PBoxMesh mesh(new BoxMesh());
+  mesh->Generate();
   mesh->Create();
   
   PShader shader(new Shader("shaders/t2"));

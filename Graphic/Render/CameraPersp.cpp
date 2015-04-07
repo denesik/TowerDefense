@@ -1,9 +1,9 @@
-﻿#include "Camera.h"
+﻿#include "CameraPersp.h"
 
 #include <glm/gtc/matrix_transform.hpp>
 
 
-Camera::Camera(void)
+CameraPersp::CameraPersp(void)
   : mViewCurr(glm::lookAt
               (
                 glm::vec3(0,0,1), // eye
@@ -18,67 +18,67 @@ Camera::Camera(void)
 }
 
 
-Camera::~Camera(void)
+CameraPersp::~CameraPersp(void)
 {
 }
 
-const glm::mat4 &Camera::GetView()
+const glm::mat4 &CameraPersp::GetView()
 {
   mView = mViewRotateY * mViewCurr;
   return mView;
 }
 
-const glm::mat4 &Camera::GetProject()
+const glm::mat4 &CameraPersp::GetProject()
 {
   return mProjection;
 }
 
-void Camera::SetFov(float fov)
+void CameraPersp::SetFov(float fov)
 {
   mFov = fov;
 }
 
-void Camera::SetAspect(float aspect)
+void CameraPersp::SetAspect(float aspect)
 {
   mAspect = aspect;
 }
 
-void Camera::SetFar(float far)
+void CameraPersp::SetFar(float far)
 {
   mFar = far;
 }
 
-void Camera::SetNear(float near)
+void CameraPersp::SetNear(float near)
 {
   mNear = near;
 }
 
-void Camera::UpdateProjection()
+void CameraPersp::UpdateProjection()
 {
   mProjection = glm::perspective(mFov, mAspect, mNear, mFar);
 }
 
-void Camera::RotateX(float angle)
+void CameraPersp::RotateX(float angle)
 {
   mViewCurr = glm::rotate(mViewCurr, glm::radians(angle), glm::vec3(0.0f, 1.0f, 0.0f));
 }
 
-void Camera::RotateY(float angle)
+void CameraPersp::RotateY(float angle)
 {
   mViewRotateY = glm::rotate(mViewRotateY, glm::radians(angle), glm::vec3(1.0f, 0.0f, 0.0f));
 }
 
-void Camera::MoveX(float dist)
+void CameraPersp::MoveX(float dist)
 {
   mViewCurr = glm::translate(mViewCurr, glm::vec3(-dist, 0.0f, 0.0f));
 }
 
-void Camera::MoveY(float dist)
+void CameraPersp::MoveY(float dist)
 {
   mViewCurr = glm::translate(mViewCurr, glm::vec3(0.0f, -dist, 0.0f));
 }
 
-void Camera::MoveZ(float dist)
+void CameraPersp::MoveZ(float dist)
 {
   mViewCurr = glm::translate(mViewCurr, glm::vec3(0.0f, 0.0f, -dist));
 }

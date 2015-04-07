@@ -1,16 +1,18 @@
 #pragma once
 
-#ifndef Camera_h__
-#define Camera_h__
+#ifndef CameraPersp_h__
+#define CameraPersp_h__
 
 #include "ICamera.h"
 
+class CameraPersp;
+typedef std::shared_ptr<CameraPersp> PCameraPersp;
 
-class Camera : public ICamera
+class CameraPersp : public ICamera
 {
 public:
-  Camera();
-  ~Camera();
+  CameraPersp();
+  ~CameraPersp();
 
   /// Получить матрицу вида.
   const glm::mat4 &GetView() override;
@@ -56,4 +58,4 @@ private:
 
 
 
-#endif // Camera_h__
+#endif // CameraPersp_h__

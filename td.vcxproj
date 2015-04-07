@@ -15,7 +15,7 @@
     <ClInclude Include="Graphic\Render\BaseMesh.h" />
     <ClInclude Include="Graphic\Render\Bitmap.h" />
     <ClInclude Include="Graphic\Render\BoxMesh.h" />
-    <ClInclude Include="Graphic\Render\Camera.h" />
+    <ClInclude Include="Graphic\Render\CameraPersp.h" />
     <ClInclude Include="Graphic\Render\Color.h" />
     <ClInclude Include="Graphic\Render\ICamera.h" />
     <ClInclude Include="Graphic\Render\IMaterial.h" />
@@ -40,7 +40,7 @@
     <ClCompile Include="Graphic\Render\BaseMesh.cpp" />
     <ClCompile Include="Graphic\Render\Bitmap.cpp" />
     <ClCompile Include="Graphic\Render\BoxMesh.cpp" />
-    <ClCompile Include="Graphic\Render\Camera.cpp" />
+    <ClCompile Include="Graphic\Render\CameraPersp.cpp" />
     <ClCompile Include="Graphic\Render\Color.cpp" />
     <ClCompile Include="Graphic\Render\Model.cpp" />
     <ClCompile Include="Graphic\Render\Render.cpp" />

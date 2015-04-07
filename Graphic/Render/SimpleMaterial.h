@@ -7,6 +7,9 @@
 #include "Texture.h"
 
 
+class SimpleMaterial;
+typedef std::shared_ptr<SimpleMaterial> PSimpleMaterial;
+
 /// Простой материал.
 /// Содержит текстуру.
 class SimpleMaterial : public IMaterial

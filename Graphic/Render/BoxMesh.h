@@ -6,6 +6,8 @@
 #include <glm/glm.hpp>
 #include "BaseMesh.h"
 
+class BoxMesh;
+typedef std::shared_ptr<BoxMesh> PBoxMesh;
 
 /// Меш.
 /// Создает параллепипед указанного размера из указанных сторон.
