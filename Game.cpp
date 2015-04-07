@@ -87,7 +87,7 @@ int Game::Run()
 
     while(!mWindow->WindowShouldClose())
     {
-      mRender->DrawModel(camera, model, glm::vec3(1.0f), glm::vec3(1.0f));
+      mRender->DrawModel(camera, model, glm::vec3(0.0f, 0.0f, -5.0f), glm::vec3(1.0f));
 
       mWindow->SwapBuffers();
       WindowGL::WindowSystemPollEvents();
