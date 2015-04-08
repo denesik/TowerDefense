@@ -6,8 +6,17 @@ CONFIG += c++11
 
 VERSION = 0.1.0
 
+win32:INCLUDEPATH += $$PWD/../../libs/glew/
+win32:INCLUDEPATH += $$PWD/../../libs/glfw/
+win32:INCLUDEPATH += $$PWD/../../libs/glm/
+
 unix:LIBS += -lglfw3 -lGL -lGLEW
 unix:LIBS += -lm -lXrandr -lXi -lX11 -lXxf86vm -lpthread -lXinerama -lXcursor
+
+#win32:LIBS += -L$$PWD/../../libs/lib/ -glew32
+
+#win32:CONFIG(debug, debug|release):LIBS += -L$$PWD/../../libs/lib/ -glfw3d
+#win32:CONFIG(release, debug|release):LIBS += -L$$PWD/../../libs/lib/ -glfw3
 
 
 SOURCES += main.cpp \
