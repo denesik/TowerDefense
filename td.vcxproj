@@ -86,8 +86,8 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>E:\works\td\td\;E:\works\libs\glew;E:\works\libs\glfw;E:\works\libs\glm;$(IncludePath)</IncludePath>
-    <LibraryPath>E:\works\libs\Debug;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(ProjectDir);$(SolutionDir)..\libs\glew;$(SolutionDir)..\libs\glfw;$(SolutionDir)..\libs\glm;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)..\libs\Debug;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
